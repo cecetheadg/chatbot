@@ -1,0 +1,357 @@
+# ============================================
+# Chatbot L0027 - Production (High Scale)
+# Statut Général des Agents de l'État de Guinée
+# Optimized for 100,000+ users
+# Resources: 32GB RAM, 100GB Disk, 1GB Network
+# ============================================
+# 
+# Production setup with Traefik reverse proxy
+# Note: Traefik is in docker-compose.traefik.yml (separate file)
+# Start Traefik first with: ./start-traefik.sh
+# 
+# Usage: docker compose -f docker-compose.prod.yml --profile production up -d --scale chatbot=4
+
+services:
+  # ============================================
+  # Application Chatbot (Scaled)
+  # ============================================
+  traefik:
+    image: traefik:v3.1
+    command:
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --entrypoints.web.http.redirections.entrypoint.to=websecure
+      - --entrypoints.web.http.redirections.entrypoint.scheme=https
+      - --certificatesresolvers.letsencrypt.acme.email=${TRAEFIK_ACME_EMAIL}
+      - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge=true
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
+      - --log.level=INFO
+      - --accesslog=true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_letsencrypt:/letsencrypt
+    restart: unless-stopped
+    
+  chatbot:
+    # Note: container_name removed to allow scaling
+    # Use: docker compose up -d --scale chatbot=4
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - WORKERS=${WORKERS:-8}
+    restart: unless-stopped
+    environment:
+      - POSTGRES_HOST=postgres
+      - REDIS_HOST=redis
+      - QDRANT_HOST=qdrant
+      - WORKERS_PER_INSTANCE=8  # 8 workers per instance (total: 32 workers with 4 instances)
+      - MAX_WORKERS=32
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - DEFAULT_LLM_PROVIDER=${DEFAULT_LLM_PROVIDER}
+      - DATA_DIR=${DATA_DIR}
+      - LAW_FILE=${LAW_FILE}
+      - QA_FILE=${QA_FILE}
+    volumes:
+      - ./data:/app/data:ro
+      - ./logs:/app/logs
+      # Frontend directory is included in Docker image (no volume mount needed in production)
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+    networks:
+      - chatbot_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '4'  # 4 CPUs per instance
+          memory: 6G  # 6GB per instance (total: 24GB for 4 instances)
+        reservations:
+          cpus: '2'
+          memory: 4G
+    # Traefik labels for production routing and load balancing
+    labels:
+      - "traefik.enable=true"
+      # Main router for chatbot API
+      - "traefik.http.routers.chatbot.rule=Host(`${DOMAIN}`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.chatbot.entrypoints=websecure"
+      - "traefik.http.routers.chatbot.service=chatbot"
+      - "traefik.http.routers.chatbot.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.chatbot.middlewares=security-headers@file,cors-headers@file,rate-limit-api@file,compress@file"
+      - "traefik.http.routers.chatbot.priority=10"
+      # Router for root path
+      - "traefik.http.routers.chatbot-root.rule=Host(`${DOMAIN}`) && Path(`/`)"
+      - "traefik.http.routers.chatbot-root.entrypoints=websecure"
+      - "traefik.http.routers.chatbot-root.service=chatbot"
+      - "traefik.http.routers.chatbot-root.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.chatbot-root.middlewares=security-headers@file,cors-headers@file"
+      # Router for static files (widget, embed.js)
+      - "traefik.http.routers.chatbot-static.rule=Host(`${DOMAIN}`) && (PathPrefix(`/static`) || Path(`/widget`) || Path(`/widget.html`) || Path(`/embed.js`))"
+      - "traefik.http.routers.chatbot-static.entrypoints=websecure"
+      - "traefik.http.routers.chatbot-static.service=chatbot"
+      - "traefik.http.routers.chatbot-static.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.chatbot-static.middlewares=security-headers@file,compress@file"
+      # Router for documentation
+      - "traefik.http.routers.chatbot-docs.rule=Host(`${DOMAIN}`) && (PathPrefix(`/docs`) || PathPrefix(`/redoc`) || PathPrefix(`/openapi.json`))"
+      - "traefik.http.routers.chatbot-docs.entrypoints=websecure"
+      - "traefik.http.routers.chatbot-docs.service=chatbot"
+      - "traefik.http.routers.chatbot-docs.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.chatbot-docs.middlewares=security-headers@file,compress@file"
+      # Router for health check
+      - "traefik.http.routers.chatbot-health.rule=Host(`${DOMAIN}`) && Path(`/health`)"
+      - "traefik.http.routers.chatbot-health.entrypoints=websecure"
+      - "traefik.http.routers.chatbot-health.service=chatbot"
+      - "traefik.http.routers.chatbot-health.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.chatbot-health.middlewares=security-headers@file"
+      # Service configuration
+      - "traefik.http.services.chatbot.loadbalancer.server.port=8000"
+      - "traefik.http.services.chatbot.loadbalancer.sticky.cookie=true"
+      - "traefik.http.services.chatbot.loadbalancer.sticky.cookie.name=chatbot_session"
+      - "traefik.http.services.chatbot.loadbalancer.healthcheck.path=/health"
+      - "traefik.http.services.chatbot.loadbalancer.healthcheck.interval=10s"
+      - "traefik.docker.network=chatbot_l0027_network"
+
+  # ============================================
+  # PostgreSQL (Optimized for High Load)
+  # ============================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: chatbot_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-chatbot_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-chatbot_password}
+      POSTGRES_DB: ${POSTGRES_DB:-chatbot_l0027}
+      POSTGRES_INITDB_ARGS: "-E UTF8 --locale=C"
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init_db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./config/postgresql.conf:/etc/postgresql/postgresql.conf:ro  # Custom config if exists
+    networks:
+      - chatbot_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-chatbot_user} -d ${POSTGRES_DB:-chatbot_l0027}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 8G  # 8GB for PostgreSQL
+        reservations:
+          cpus: '2'
+          memory: 6G
+    # High-performance PostgreSQL configuration
+    command:
+      - "postgres"
+      - "-c"
+      - "max_connections=500"
+      - "-c"
+      - "shared_buffers=2GB"
+      - "-c"
+      - "effective_cache_size=6GB"
+      - "-c"
+      - "maintenance_work_mem=512MB"
+      - "-c"
+      - "checkpoint_completion_target=0.9"
+      - "-c"
+      - "wal_buffers=16MB"
+      - "-c"
+      - "default_statistics_target=100"
+      - "-c"
+      - "random_page_cost=1.1"
+      - "-c"
+      - "effective_io_concurrency=200"
+      - "-c"
+      - "work_mem=8MB"
+      - "-c"
+      - "min_wal_size=1GB"
+      - "-c"
+      - "max_wal_size=4GB"
+      - "-c"
+      - "max_worker_processes=4"
+      - "-c"
+      - "max_parallel_workers_per_gather=2"
+      - "-c"
+      - "max_parallel_workers=4"
+      - "-c"
+      - "max_parallel_maintenance_workers=2"
+
+  # ============================================
+  # Redis (Optimized Cache)
+  # ============================================
+  redis:
+    image: redis:7-alpine
+    container_name: chatbot_redis
+    restart: unless-stopped
+    networks:
+      - chatbot_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - redis_data:/data
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G  # 4GB for Redis cache
+        reservations:
+          cpus: '1'
+          memory: 2G
+    # High-performance Redis configuration
+    command:
+      - "redis-server"
+      - "--appendonly"
+      - "yes"
+      - "--maxmemory"
+      - "3gb"  # 3GB for data (1GB buffer)
+      - "--maxmemory-policy"
+      - "allkeys-lru"
+      - "--save"
+      - "900 1"
+      - "--save"
+      - "300 10"
+      - "--save"
+      - "60 10000"
+      - "--tcp-keepalive"
+      - "60"
+      - "--timeout"
+      - "300"
+      - "--tcp-backlog"
+      - "511"
+      - "--databases"
+      - "16"
+
+  # ============================================
+  # Qdrant (Vector DB - Optimized)
+  # ============================================
+  qdrant:
+    image: qdrant/qdrant:v1.11.1
+    container_name: chatbot_qdrant
+    restart: unless-stopped
+    environment:
+      - QDRANT__SERVICE__GRPC_PORT=6334
+      - QDRANT__SERVICE__HTTP_PORT=6333
+      - QDRANT__LOG_LEVEL=WARN  # Reduce logging for performance
+      # Performance optimizations
+      - QDRANT__STORAGE__OPTIMIZER__INDEXING_THRESHOLD=10000
+      - QDRANT__STORAGE__OPTIMIZER__FLUSH_INTERVAL_SEC=5
+      - QDRANT__STORAGE__OPTIMIZER__MAX_OPTIMIZATION_THREADS=2
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks:
+      - chatbot_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G  # 4GB for Qdrant
+        reservations:
+          cpus: '1'
+          memory: 2G
+
+  # ============================================
+  # Interface d'administration (optionnel)
+  # ============================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: chatbot_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@chatbot.local
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - chatbot_network
+    depends_on:
+      - postgres
+    profiles:
+      - tools
+
+  # ============================================
+  # Redis Commander (optionnel)
+  # ============================================
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: chatbot_redis_commander
+    restart: unless-stopped
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    networks:
+      - chatbot_network
+    depends_on:
+      - redis
+    profiles:
+      - tools
+
+# ============================================
+# Volumes
+# ============================================
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  qdrant_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+  traefik_letsencrypt:
+    driver: local
+
+# ============================================
+# Networks
+# ============================================
+networks:
+  chatbot_network:
+    name: chatbot_l0027_network
+    external: true  # Network created by Traefik (docker-compose.traefik.yml)
+
+# ============================================
+# Resource Summary (32GB Total)
+# ============================================
+# Traefik:        2GB
+# Chatbot (4x):   24GB (6GB each)
+# PostgreSQL:     8GB
+# Redis:          4GB
+# Qdrant:         4GB
+# System/Buffer:  2GB
+# Total:          ~44GB (with some headroom via limits)
+#
+# Note: Docker limits may allow slight overcommitment
+# Actual usage should stay within 32GB
+# ============================================

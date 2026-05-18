@@ -1,0 +1,825 @@
+{
+  "metadata": {
+    "source": "Loi L/2019/0027/AN - Statut Général des Agents de l'État",
+    "version": "1.0",
+    "date_creation": "2025-01-01",
+    "objectif": "Entraînement chatbot RAG pour la fonction publique guinéenne",
+    "nombre_qa": 100,
+    "categories": [
+      "definitions_generales",
+      "recrutement",
+      "droits_agents",
+      "obligations_agents",
+      "conges",
+      "discipline_sanctions",
+      "recompenses",
+      "remuneration",
+      "carriere_avancement",
+      "positions_administratives",
+      "cessation_service",
+      "contractuels"
+    ]
+  },
+  "questions_reponses": [
+    {
+      "id": 1,
+      "categorie": "definitions_generales",
+      "question": "Qu'est-ce qu'un agent de l'État selon la loi guinéenne ?",
+      "reponse": "Selon l'article 2 de la loi L/2019/0027/AN, un agent de l'État est toute personne physique recrutée pour assurer, à titre permanent ou temporaire, directement et personnellement, une mission de service public au sein des services centraux, déconcentrés et décentralisés des administrations et institutions publiques.",
+      "articles_references": [2],
+      "mots_cles": ["agent de l'État", "définition", "service public"]
+    },
+    {
+      "id": 2,
+      "categorie": "definitions_generales",
+      "question": "Quelles sont les deux catégories d'agents de l'État ?",
+      "reponse": "Selon l'article 3, les agents de l'État régis par la loi sont de deux catégories : les fonctionnaires et les agents contractuels de l'État.",
+      "articles_references": [3],
+      "mots_cles": ["catégories", "fonctionnaires", "contractuels"]
+    },
+    {
+      "id": 3,
+      "categorie": "definitions_generales",
+      "question": "La loi s'applique-t-elle aux militaires et aux magistrats ?",
+      "reponse": "Non. Selon l'article 4, les dispositions de la loi ne s'appliquent pas aux membres des forces armées et aux magistrats, qui sont régis par des dispositions spécifiques.",
+      "articles_references": [4],
+      "mots_cles": ["exclusion", "militaires", "magistrats", "champ d'application"]
+    },
+    {
+      "id": 4,
+      "categorie": "definitions_generales",
+      "question": "Qu'est-ce qu'un fonctionnaire au sens de la loi ?",
+      "reponse": "Selon l'article 122, est fonctionnaire tout agent nommé et titularisé dans l'un des emplois publics permanents. L'acquisition de la qualité de fonctionnaire est subordonnée à l'accomplissement d'une période d'intégration (stage probatoire) d'une année au moins.",
+      "articles_references": [122],
+      "mots_cles": ["fonctionnaire", "définition", "titularisation", "stage probatoire"]
+    },
+    {
+      "id": 5,
+      "categorie": "definitions_generales",
+      "question": "Que sont les mesures positives dans la fonction publique ?",
+      "reponse": "Selon l'article 6, les 'Mesures Positives' désignent un ensemble cohérent d'actions de caractère temporaire visant spécifiquement à améliorer la situation des membres d'un groupe cible dans la société. Elles permettent d'assouplir certains critères pour assurer un équilibre d'accès à l'emploi entre les sexes (article 5).",
+      "articles_references": [5, 6],
+      "mots_cles": ["mesures positives", "égalité", "genre", "discrimination positive"]
+    },
+    {
+      "id": 6,
+      "categorie": "recrutement",
+      "question": "Quelles sont les conditions générales pour être recruté dans la fonction publique ?",
+      "reponse": "Selon l'article 14, il faut : 1) Posséder la nationalité guinéenne, 2) Jouir de ses droits civils et civiques, 3) Être de bonne moralité, 4) Présenter un casier judiciaire compatible avec l'emploi, 5) Remplir les conditions d'aptitudes physiques et mentales, 6) Respecter les limites d'âge (18-40 ans pour les hiérarchies B et C, 18-45 ans pour les hiérarchies A), 7) Justifier des diplômes requis.",
+      "articles_references": [14],
+      "mots_cles": ["recrutement", "conditions", "âge", "nationalité", "diplômes"]
+    },
+    {
+      "id": 7,
+      "categorie": "recrutement",
+      "question": "Quel est l'âge maximum pour postuler à un emploi de fonctionnaire ?",
+      "reponse": "Selon l'article 14, l'âge maximum est de 40 ans pour les emplois des hiérarchies B2, B1 et C (emplois moyens et d'exécution), et de 45 ans pour les emplois des hiérarchies A3, A2 et A1 (emplois supérieurs). L'âge minimum est de 18 ans pour tous.",
+      "articles_references": [14],
+      "mots_cles": ["âge", "recrutement", "limite", "hiérarchies"]
+    },
+    {
+      "id": 8,
+      "categorie": "recrutement",
+      "question": "Quel est le mode de recrutement dans la fonction publique ?",
+      "reponse": "Selon l'article 17, le mode d'accès aux emplois de la Fonction Publique est le concours. Il ne peut être dérogé à ce principe que de façon exceptionnelle, notamment pour le recrutement des contractuels.",
+      "articles_references": [17],
+      "mots_cles": ["concours", "recrutement", "accès"]
+    },
+    {
+      "id": 9,
+      "categorie": "recrutement",
+      "question": "Quelles pièces doit fournir un candidat à un emploi permanent ?",
+      "reponse": "Selon l'article 15, le candidat doit fournir : 1) Extrait d'acte de naissance ou jugement supplétif, 2) Casier judiciaire de moins de 3 mois, 3) Certificat de résidence de moins de 3 mois, 4) Certificat de nationalité, 5) Quatre photos d'identité, 6) Certificat médical d'aptitude de moins de 3 mois, 7) Diplômes ou titres universitaires.",
+      "articles_references": [15],
+      "mots_cles": ["pièces", "dossier", "candidature", "documents"]
+    },
+    {
+      "id": 10,
+      "categorie": "recrutement",
+      "question": "Un étranger peut-il être recruté dans la fonction publique guinéenne ?",
+      "reponse": "Selon l'article 16, l'Administration Publique peut, lorsque les circonstances le justifient, recruter comme contractuels des candidats de nationalité guinéenne ou étrangère. Cependant, les emplois de fonctionnaires sont réservés aux Guinéens.",
+      "articles_references": [14, 16],
+      "mots_cles": ["étranger", "nationalité", "contractuel", "recrutement"]
+    },
+    {
+      "id": 11,
+      "categorie": "droits_agents",
+      "question": "Les agents de l'État ont-ils droit à une rémunération ?",
+      "reponse": "Oui. Selon l'article 19, tout agent de l'État a droit, après service accompli, à une rémunération comprenant le traitement ou le salaire soumis à retenue pour pension et cotisation de protection sociale. Il peut aussi bénéficier d'indemnités et avantages liés à son emploi.",
+      "articles_references": [19],
+      "mots_cles": ["rémunération", "traitement", "salaire", "droit"]
+    },
+    {
+      "id": 12,
+      "categorie": "droits_agents",
+      "question": "Les agents de l'État bénéficient-ils d'une protection sociale ?",
+      "reponse": "Oui. Selon l'article 20, les agents de l'État bénéficient d'une protection sociale en matière de risques professionnels, de prestations familiales, de soins de santé et de pension de retraite.",
+      "articles_references": [20],
+      "mots_cles": ["protection sociale", "santé", "retraite", "prestations familiales"]
+    },
+    {
+      "id": 13,
+      "categorie": "droits_agents",
+      "question": "Le droit syndical est-il garanti aux agents de l'État ?",
+      "reponse": "Oui. Selon l'article 35, le droit syndical est garanti aux agents de l'État. Ils peuvent librement créer des associations ou syndicats professionnels, y adhérer et y exercer des mandats, dans le respect des lois et règlements.",
+      "articles_references": [35],
+      "mots_cles": ["syndicat", "droit syndical", "association", "liberté"]
+    },
+    {
+      "id": 14,
+      "categorie": "droits_agents",
+      "question": "Les agents de l'État ont-ils le droit de grève ?",
+      "reponse": "Oui. Selon l'article 41, le droit de grève est reconnu aux agents de l'État. Cependant, les jours non travaillés pour fait de grève ne sont pas rémunérés. Un service minimum doit être assuré, et l'autorité peut réquisitionner des agents.",
+      "articles_references": [41],
+      "mots_cles": ["grève", "droit de grève", "service minimum", "réquisition"]
+    },
+    {
+      "id": 15,
+      "categorie": "droits_agents",
+      "question": "L'agent de l'État est-il protégé contre les outrages et menaces ?",
+      "reponse": "Oui. Selon l'article 43, l'Administration est tenue de protéger les agents de l'État contre les menaces, outrages, injures ou diffamations dont ils peuvent faire l'objet en raison ou à l'occasion de l'exercice de leurs fonctions. L'Administration doit réparer les dommages qui en résultent.",
+      "articles_references": [43],
+      "mots_cles": ["protection", "menaces", "outrages", "injures", "défense"]
+    },
+    {
+      "id": 16,
+      "categorie": "droits_agents",
+      "question": "Un agent de l'État a-t-il accès à son dossier individuel ?",
+      "reponse": "Oui. Selon l'article 46, l'Administration doit ouvrir pour tout agent un dossier individuel contenant toutes les pièces relatives à sa situation administrative et professionnelle. L'agent jouit du droit d'accès à son dossier individuel.",
+      "articles_references": [46],
+      "mots_cles": ["dossier individuel", "accès", "situation administrative"]
+    },
+    {
+      "id": 17,
+      "categorie": "droits_agents",
+      "question": "Quels recours a un agent qui s'estime lésé ?",
+      "reponse": "Selon l'article 47, tout agent de l'État qui s'estime lésé dans ses intérêts professionnels dispose, en plus des recours administratifs, du droit de recours juridictionnel. En cas d'abus d'autorité, l'article 82 permet le recours au Conseil de discipline et au Tribunal Administratif.",
+      "articles_references": [47, 82],
+      "mots_cles": ["recours", "tribunal administratif", "conseil de discipline"]
+    },
+    {
+      "id": 18,
+      "categorie": "droits_agents",
+      "question": "Les opinions politiques peuvent-elles figurer dans le dossier d'un agent ?",
+      "reponse": "Non. Selon l'article 40, les agents sont libres de leurs opinions politiques, philosophiques et religieuses, et aucune mention faisant état de ces opinions ne doit figurer dans leur dossier individuel. Toutefois, l'expression de ces opinions doit se faire en dehors du service avec la réserve appropriée.",
+      "articles_references": [40],
+      "mots_cles": ["liberté d'opinion", "politique", "religion", "dossier", "neutralité"]
+    },
+    {
+      "id": 19,
+      "categorie": "conges",
+      "question": "Quelle est la durée du congé annuel des agents de l'État ?",
+      "reponse": "Selon l'article 22, les agents de l'État ont droit à un congé annuel de 30 jours calendaires consécutifs avec salaire entier, pour 11 mois de services accomplis. Ce congé est obligatoire et constitue un droit inaliénable (article 25).",
+      "articles_references": [22, 25],
+      "mots_cles": ["congé annuel", "30 jours", "vacances", "repos"]
+    },
+    {
+      "id": 20,
+      "categorie": "conges",
+      "question": "Quelle est la durée du congé de maternité ?",
+      "reponse": "Selon l'article 23, le personnel féminin de la Fonction Publique bénéficie d'un congé de maternité d'une durée totale de 14 semaines, dont elle peut jouir à sa convenance. Ce congé peut être cumulé avec le congé annuel (article 24).",
+      "articles_references": [23, 24],
+      "mots_cles": ["congé maternité", "14 semaines", "femme", "grossesse"]
+    },
+    {
+      "id": 21,
+      "categorie": "conges",
+      "question": "Quels sont les différents types de congés prévus par la loi ?",
+      "reponse": "Selon l'article 27, outre le congé annuel et le congé de maternité, les agents ont droit au : congé de maladie, congé de formation, congé d'expectative, congé de circonstance (événement familial), congé d'intérêt public, et congé spécial (1 mois maximum par an). L'article 26 prévoit aussi le congé de veuvage.",
+      "articles_references": [26, 27],
+      "mots_cles": ["types de congés", "maladie", "formation", "circonstance", "veuvage"]
+    },
+    {
+      "id": 22,
+      "categorie": "conges",
+      "question": "Le congé annuel peut-il être fractionné ?",
+      "reponse": "Selon l'article 28, le congé ne peut être fractionné en plus de deux tranches de 15 jours chacune. En aucun cas, il ne peut être versé d'indemnités compensatrices de congé.",
+      "articles_references": [28],
+      "mots_cles": ["fractionnement", "congé", "15 jours", "indemnité"]
+    },
+    {
+      "id": 23,
+      "categorie": "conges",
+      "question": "Peut-on obtenir des permissions pour événements familiaux ?",
+      "reponse": "Oui. Selon l'article 30, des permissions exceptionnelles avec maintien du salaire peuvent être accordées pour événements familiaux, dans la limite de 10 jours maximum par an. Ces permissions ne sont pas déductibles du congé annuel.",
+      "articles_references": [30],
+      "mots_cles": ["permissions", "événements familiaux", "10 jours", "mariage", "décès"]
+    },
+    {
+      "id": 24,
+      "categorie": "obligations_agents",
+      "question": "Quelles sont les obligations fondamentales des agents de l'État ?",
+      "reponse": "Selon l'article 49, les agents ont pour obligation de servir avec loyauté, probité et patriotisme, de défendre les intérêts de la collectivité nationale et de l'État, et de respecter et faire respecter l'autorité de l'État en toutes circonstances.",
+      "articles_references": [49],
+      "mots_cles": ["loyauté", "probité", "patriotisme", "obligations"]
+    },
+    {
+      "id": 25,
+      "categorie": "obligations_agents",
+      "question": "Un agent peut-il exercer une activité privée lucrative ?",
+      "reponse": "Non. Selon l'article 51, les agents de l'État ne peuvent exercer à titre professionnel une activité privée lucrative. Cependant, l'article 52 prévoit des exceptions : ils peuvent être autorisés à effectuer des expertises, donner des enseignements ou réaliser des productions intellectuelles, littéraires ou artistiques.",
+      "articles_references": [51, 52],
+      "mots_cles": ["activité privée", "cumul", "interdiction", "dérogation", "enseignement"]
+    },
+    {
+      "id": 26,
+      "categorie": "obligations_agents",
+      "question": "Un agent doit-il obéir à tous les ordres de son supérieur ?",
+      "reponse": "Selon l'article 53, l'agent est tenu d'obéir aux instructions de son supérieur hiérarchique dans le cadre du service. Toutefois, il a le devoir de refuser d'exécuter un ordre manifestement illégal et de nature à compromettre gravement l'intérêt public.",
+      "articles_references": [53],
+      "mots_cles": ["obéissance", "hiérarchie", "ordre illégal", "refus"]
+    },
+    {
+      "id": 27,
+      "categorie": "obligations_agents",
+      "question": "Un agent peut-il accepter des cadeaux des usagers ?",
+      "reponse": "Non. Selon l'article 56, les agents de l'État ne doivent en aucun cas solliciter ou accepter des tiers, directement ou par personne interposée, des dons, gratifications ou autres avantages pour les services qu'ils rendent dans le cadre de leurs fonctions.",
+      "articles_references": [56],
+      "mots_cles": ["dons", "cadeaux", "corruption", "gratifications", "interdiction"]
+    },
+    {
+      "id": 28,
+      "categorie": "obligations_agents",
+      "question": "Qu'est-ce que l'obligation de discrétion professionnelle ?",
+      "reponse": "Selon l'article 60, tout agent est lié par l'obligation de discrétion professionnelle pour tout ce qui concerne les faits, informations ou documents dont il a connaissance dans l'exercice de ses fonctions et dont la divulgation pourrait nuire aux intérêts des usagers ou de l'Administration.",
+      "articles_references": [60, 61, 62],
+      "mots_cles": ["discrétion", "secret professionnel", "confidentialité"]
+    },
+    {
+      "id": 29,
+      "categorie": "obligations_agents",
+      "question": "L'agent doit-il accepter toute affectation ?",
+      "reponse": "Oui. Selon l'article 64, l'agent de l'État est tenu de servir partout où l'Administration l'exige et d'obéir aux règles de mobilité instituées au sein de l'Administration publique.",
+      "articles_references": [64],
+      "mots_cles": ["mobilité", "affectation", "mutation", "obligation"]
+    },
+    {
+      "id": 30,
+      "categorie": "obligations_agents",
+      "question": "L'agent doit-il payer des cotisations sociales ?",
+      "reponse": "Oui. Selon l'article 63, tout agent de l'État est tenu de payer sa part de cotisation pour la pension de retraite et la protection sociale.",
+      "articles_references": [63],
+      "mots_cles": ["cotisation", "pension", "retraite", "protection sociale"]
+    },
+    {
+      "id": 31,
+      "categorie": "discipline_sanctions",
+      "question": "Quelles sont les sanctions disciplinaires prévues par la loi ?",
+      "reponse": "Selon l'article 69, les sanctions sont classées par degré de gravité : 1er degré (avertissement, blâme), 2ème degré (abaissement d'échelon, rétrogradation, radiation du tableau d'avancement), 3ème degré (révocation, licenciement).",
+      "articles_references": [69],
+      "mots_cles": ["sanctions", "discipline", "avertissement", "blâme", "révocation", "licenciement"]
+    },
+    {
+      "id": 32,
+      "categorie": "discipline_sanctions",
+      "question": "Qui prononce les sanctions du premier degré ?",
+      "reponse": "Selon l'article 70, les sanctions du premier degré (avertissement, blâme) sont prononcées sur proposition du chef de service par le Ministre de tutelle, le gouverneur, le préfet ou le sous-préfet dont relève l'agent.",
+      "articles_references": [70],
+      "mots_cles": ["sanctions premier degré", "avertissement", "blâme", "compétence"]
+    },
+    {
+      "id": 33,
+      "categorie": "discipline_sanctions",
+      "question": "Comment sont prononcées les sanctions des 2ème et 3ème degrés ?",
+      "reponse": "Selon l'article 71, les sanctions des 2ème et 3ème degrés sont prononcées par arrêté du Ministre de la Fonction Publique, sur proposition motivée du conseil de discipline. Pour la révocation d'un agent nommé par décret, c'est le Président de la République qui signe le décret.",
+      "articles_references": [71],
+      "mots_cles": ["sanctions", "conseil de discipline", "Ministre", "Président"]
+    },
+    {
+      "id": 34,
+      "categorie": "discipline_sanctions",
+      "question": "L'agent a-t-il le droit de se défendre en procédure disciplinaire ?",
+      "reponse": "Oui. Selon l'article 72, l'agent ne peut faire l'objet d'une sanction disciplinaire sans avoir été préalablement informé des griefs retenus contre lui et mis en mesure de présenter sa défense devant un conseil de discipline.",
+      "articles_references": [72],
+      "mots_cles": ["défense", "griefs", "procédure", "conseil de discipline"]
+    },
+    {
+      "id": 35,
+      "categorie": "discipline_sanctions",
+      "question": "Qu'est-ce que la suspension d'un agent ?",
+      "reponse": "Selon l'article 73, la suspension est une situation transitoire où l'agent est provisoirement interdit d'exercer ses fonctions en raison d'une faute grave. C'est une mesure conservatoire de 3 mois maximum (article 74). L'agent suspendu conserve sa rémunération jusqu'à la décision définitive (article 77).",
+      "articles_references": [73, 74, 77],
+      "mots_cles": ["suspension", "mesure conservatoire", "3 mois", "rémunération"]
+    },
+    {
+      "id": 36,
+      "categorie": "discipline_sanctions",
+      "question": "Qu'est-ce que la révocation ?",
+      "reponse": "Selon l'article 78, la révocation est une mesure disciplinaire qui entraîne soit la perte de la fonction exercée, soit la perte de la qualité d'agent de l'État avec radiation des effectifs. Elle ne peut être prononcée qu'au terme de la procédure disciplinaire (article 81).",
+      "articles_references": [78, 81],
+      "mots_cles": ["révocation", "radiation", "sanction grave"]
+    },
+    {
+      "id": 37,
+      "categorie": "discipline_sanctions",
+      "question": "Pour quels motifs peut-on être licencié ?",
+      "reponse": "Selon l'article 84, le licenciement peut être prononcé pour : insuffisance professionnelle notoire, incapacité physique ou mentale, malversation ou détournement de deniers publics, abandon de poste de plus de 3 mois sans justification, perte de la nationalité guinéenne, ou refus de rejoindre son poste après mise en demeure.",
+      "articles_references": [83, 84],
+      "mots_cles": ["licenciement", "motifs", "abandon de poste", "insuffisance"]
+    },
+    {
+      "id": 38,
+      "categorie": "recompenses",
+      "question": "Quelles récompenses peuvent être accordées aux agents méritants ?",
+      "reponse": "Selon l'article 89, les récompenses sont : la lettre d'encouragement, la lettre de félicitations, le témoignage officiel de satisfaction, la mention honorable, le diplôme d'excellence, et l'honorariat.",
+      "articles_references": [89],
+      "mots_cles": ["récompenses", "mérite", "félicitations", "diplôme d'excellence"]
+    },
+    {
+      "id": 39,
+      "categorie": "recompenses",
+      "question": "Combien d'échelons gagne-t-on avec une lettre de félicitations ?",
+      "reponse": "Selon l'article 90, la lettre d'encouragement et la lettre de félicitations donnent droit à un avancement de 4 échelons. Elles sont accordées par le préfet, le gouverneur ou le Ministre de tutelle.",
+      "articles_references": [90],
+      "mots_cles": ["lettre de félicitations", "4 échelons", "avancement"]
+    },
+    {
+      "id": 40,
+      "categorie": "recompenses",
+      "question": "Combien d'échelons gagne-t-on avec le diplôme d'excellence ?",
+      "reponse": "Selon l'article 92, le diplôme d'excellence donne droit à un avancement de 8 échelons. Il est décerné par arrêté du Ministre de la Fonction Publique et remis solennellement.",
+      "articles_references": [92],
+      "mots_cles": ["diplôme d'excellence", "8 échelons", "avancement"]
+    },
+    {
+      "id": 41,
+      "categorie": "recompenses",
+      "question": "Qu'est-ce que l'honorariat et combien d'échelons confère-t-il ?",
+      "reponse": "Selon l'article 93, l'honorariat est conféré par décret du Président de la République et donne droit à un avancement de 10 échelons. L'article 94 précise qu'il peut être conféré Honoris Causa à un agent admis à la retraite ayant obtenu une mention honorable ou un diplôme d'excellence.",
+      "articles_references": [93, 94],
+      "mots_cles": ["honorariat", "10 échelons", "Président de la République", "honoris causa"]
+    },
+    {
+      "id": 42,
+      "categorie": "remuneration",
+      "question": "Qu'est-ce que la rémunération d'un agent de l'État ?",
+      "reponse": "Selon l'article 99, la rémunération est le traitement mensuel perçu après services accomplis. Peuvent s'y ajouter : les allocations familiales, les primes et indemnités, les frais de travaux supplémentaires, et des avantages en nature.",
+      "articles_references": [99],
+      "mots_cles": ["rémunération", "traitement", "primes", "indemnités", "avantages"]
+    },
+    {
+      "id": 43,
+      "categorie": "remuneration",
+      "question": "Comment est calculé le traitement d'un fonctionnaire ?",
+      "reponse": "Selon l'article 100, le traitement est défini par l'indice affecté au grade et à l'échelon de la hiérarchie de l'agent, multiplié par la valeur du point d'indice. Ce traitement est soumis à retenue pour pension de retraite et prévoyance sociale.",
+      "articles_references": [100],
+      "mots_cles": ["traitement", "indice", "grade", "échelon", "point d'indice"]
+    },
+    {
+      "id": 44,
+      "categorie": "remuneration",
+      "question": "Une femme célibataire chef de famille a-t-elle droit aux allocations familiales ?",
+      "reponse": "Oui. Selon l'article 21, le personnel féminin célibataire chef de famille, ainsi que la femme agent de l'État dont le mari n'est pas agent de l'Administration, ont droit aux avantages liés aux allocations familiales.",
+      "articles_references": [21],
+      "mots_cles": ["allocations familiales", "femme", "chef de famille", "célibataire"]
+    },
+    {
+      "id": 45,
+      "categorie": "carriere_avancement",
+      "question": "Comment sont classés les fonctionnaires ?",
+      "reponse": "Selon l'article 125, les fonctionnaires sont classés en 6 hiérarchies : A3, A2, A1 (emplois supérieurs), B2, B1 (emplois moyens), et C (emplois d'exécution). Chaque hiérarchie compte 12 grades (I à XII ou exceptionnel), et chaque grade comprend 12 échelons (article 126).",
+      "articles_references": [125, 126],
+      "mots_cles": ["hiérarchies", "grades", "échelons", "classification"]
+    },
+    {
+      "id": 46,
+      "categorie": "carriere_avancement",
+      "question": "À quelle fréquence a lieu l'avancement d'échelon ?",
+      "reponse": "Selon l'article 179, l'avancement d'échelon, qui se traduit par une augmentation de traitement, a lieu tous les ans pour le fonctionnaire.",
+      "articles_references": [179],
+      "mots_cles": ["avancement échelon", "annuel", "augmentation"]
+    },
+    {
+      "id": 47,
+      "categorie": "carriere_avancement",
+      "question": "Quelles sont les conditions pour l'avancement de grade ?",
+      "reponse": "Selon l'article 180, les fonctionnaires doivent être inscrits au tableau annuel d'avancement (rendu public sous 15 jours) et avoir accompli au moins 4 années de service dans leur grade actuel. L'avancement de grade n'est pas subordonné à l'épuisement des échelons.",
+      "articles_references": [180],
+      "mots_cles": ["avancement grade", "tableau", "4 ans", "mérite"]
+    },
+    {
+      "id": 48,
+      "categorie": "carriere_avancement",
+      "question": "Une sanction disciplinaire peut-elle empêcher un avancement de grade ?",
+      "reponse": "Oui. Selon l'article 181, les fonctionnaires ayant fait l'objet d'une sanction disciplinaire du second degré au cours des deux dernières années ne peuvent être proposés pour un avancement de grade.",
+      "articles_references": [181],
+      "mots_cles": ["sanction", "avancement", "interdiction", "tableau"]
+    },
+    {
+      "id": 49,
+      "categorie": "carriere_avancement",
+      "question": "Comment s'effectue l'évaluation des fonctionnaires ?",
+      "reponse": "Selon l'article 172, tout fonctionnaire en activité ou en détachement fait l'objet d'une évaluation annuelle exprimant son rendement. Le supérieur hiérarchique direct évalue sur la base d'une lettre d'objectifs établie annuellement avec le fonctionnaire.",
+      "articles_references": [172, 175, 176],
+      "mots_cles": ["évaluation", "notation", "rendement", "objectifs"]
+    },
+    {
+      "id": 50,
+      "categorie": "carriere_avancement",
+      "question": "Quelles sont les mentions possibles lors de l'évaluation ?",
+      "reponse": "Selon l'article 175, les mentions sont : Excellent (4 échelons), Très bon (3 échelons), Bon (2 échelons), Passable (1 échelon), et Médiocre (aucun avancement). Ces mentions déterminent les droits à l'avancement (article 176).",
+      "articles_references": [175, 176],
+      "mots_cles": ["notation", "mentions", "excellent", "médiocre", "échelons"]
+    },
+    {
+      "id": 51,
+      "categorie": "carriere_avancement",
+      "question": "Qu'est-ce que le stage probatoire ?",
+      "reponse": "Selon l'article 127, tout fonctionnaire nouvellement recruté effectue un stage probatoire d'un an minimum. Ce stage est formatif et sélectif, visant à préparer le stagiaire à sa carrière administrative. Il se déroule sous le contrôle d'un maître de stage (article 128).",
+      "articles_references": [127, 128],
+      "mots_cles": ["stage probatoire", "1 an", "maître de stage", "titularisation"]
+    },
+    {
+      "id": 52,
+      "categorie": "carriere_avancement",
+      "question": "Un stagiaire peut-il être licencié pendant le stage ?",
+      "reponse": "Oui. Selon l'article 132, le stage peut prendre fin par démission, licenciement ou révocation. L'article 133 précise que le licenciement pour insuffisance professionnelle ne peut intervenir qu'après 3 mois de stage minimum, sur rapport du maître de stage et après consultation du conseil de discipline.",
+      "articles_references": [132, 133],
+      "mots_cles": ["stagiaire", "licenciement", "insuffisance", "3 mois"]
+    },
+    {
+      "id": 53,
+      "categorie": "carriere_avancement",
+      "question": "Le fonctionnaire stagiaire a-t-il le droit de grève ?",
+      "reponse": "Non. Selon l'article 138, le droit de grève n'est pas reconnu aux fonctionnaires stagiaires.",
+      "articles_references": [138],
+      "mots_cles": ["stagiaire", "grève", "interdiction"]
+    },
+    {
+      "id": 54,
+      "categorie": "positions_administratives",
+      "question": "Quelles sont les positions administratives d'un fonctionnaire ?",
+      "reponse": "Selon l'article 144, tout fonctionnaire est placé dans l'une des positions suivantes : l'activité, le détachement, la disponibilité, ou le hors cadre.",
+      "articles_references": [144],
+      "mots_cles": ["positions administratives", "activité", "détachement", "disponibilité", "hors cadre"]
+    },
+    {
+      "id": 55,
+      "categorie": "positions_administratives",
+      "question": "Qu'est-ce que la position d'activité ?",
+      "reponse": "Selon l'article 145, l'activité est la position du fonctionnaire qui exerce effectivement les fonctions afférentes à son emploi. Sont également considérés en activité les fonctionnaires en congé annuel, maladie, maternité, formation, veuvage, etc. (article 146).",
+      "articles_references": [145, 146],
+      "mots_cles": ["activité", "exercice", "fonctions", "congés"]
+    },
+    {
+      "id": 56,
+      "categorie": "positions_administratives",
+      "question": "Qu'est-ce que le détachement ?",
+      "reponse": "Selon l'article 148, le détachement est la position du fonctionnaire autorisé à suspendre son service temporairement pour exercer un mandat public ou occuper un emploi non prévu par les administrations de l'État. La durée maximale est de 5 ans, renouvelable une fois (article 154).",
+      "articles_references": [148, 149, 154],
+      "mots_cles": ["détachement", "mandat", "5 ans", "organisme"]
+    },
+    {
+      "id": 57,
+      "categorie": "positions_administratives",
+      "question": "Où peut-on être détaché ?",
+      "reponse": "Selon l'article 149, le détachement est possible auprès : des établissements publics, des sociétés d'État ou d'économie mixte, des collectivités locales, des organismes internationaux, des sociétés privées d'intérêt public stratégique, des institutions républicaines, et des organisations syndicales.",
+      "articles_references": [149],
+      "mots_cles": ["détachement", "établissements", "organismes", "syndicats"]
+    },
+    {
+      "id": 58,
+      "categorie": "positions_administratives",
+      "question": "Le fonctionnaire détaché est-il payé par son administration d'origine ?",
+      "reponse": "Non. Selon l'article 152, le fonctionnaire détaché est rémunéré par l'organisme de détachement. La rémunération doit être au moins équivalente à celle perçue dans son administration d'origine.",
+      "articles_references": [152],
+      "mots_cles": ["détachement", "rémunération", "organisme"]
+    },
+    {
+      "id": 59,
+      "categorie": "positions_administratives",
+      "question": "Qu'est-ce que la disponibilité ?",
+      "reponse": "Selon l'article 160, la disponibilité est la position du fonctionnaire autorisé à suspendre temporairement ses activités pour un motif personnel. Le fonctionnaire cesse de bénéficier de sa rémunération et de ses droits à l'avancement. La durée n'est pas prise en compte pour la pension.",
+      "articles_references": [160, 162],
+      "mots_cles": ["disponibilité", "suspension", "motif personnel"]
+    },
+    {
+      "id": 60,
+      "categorie": "positions_administratives",
+      "question": "Pour quelles raisons peut-on obtenir une disponibilité ?",
+      "reponse": "Selon l'article 162, la disponibilité peut être accordée pour : poursuivre des études ou recherches (1 à 2 ans), se rapprocher du conjoint (6 mois à 3 ans), ou évoluer dans le secteur privé (2 à 3 ans). La durée cumulée ne peut excéder 5 ans sur l'ensemble de la carrière.",
+      "articles_references": [162, 163, 164],
+      "mots_cles": ["disponibilité", "études", "conjoint", "secteur privé", "5 ans"]
+    },
+    {
+      "id": 61,
+      "categorie": "positions_administratives",
+      "question": "Qu'est-ce que la position hors cadre ?",
+      "reponse": "Selon l'article 165, la position hors cadre est celle du fonctionnaire qui, après un détachement, souhaite être maintenu au-delà des délais prévus ou poursuivre ses activités dans une entreprise d'intérêt national. Cette position est suspensive des droits à la rémunération, à l'avancement et à l'ancienneté.",
+      "articles_references": [165, 166],
+      "mots_cles": ["hors cadre", "détachement prolongé", "entreprise"]
+    },
+    {
+      "id": 62,
+      "categorie": "cessation_service",
+      "question": "Quelles sont les causes de cessation définitive de service ?",
+      "reponse": "Selon l'article 107, la cessation définitive de service résulte de : la démission régulièrement acceptée, la révocation, le licenciement, l'admission à la retraite, ou le décès.",
+      "articles_references": [107],
+      "mots_cles": ["cessation", "démission", "révocation", "licenciement", "retraite", "décès"]
+    },
+    {
+      "id": 63,
+      "categorie": "cessation_service",
+      "question": "Comment démissionner de la fonction publique ?",
+      "reponse": "Selon l'article 110, la démission est un acte écrit exprimant la volonté non équivoque de quitter la fonction publique. La demande est adressée par voie hiérarchique au Ministre, puis transmise au Ministre de la Fonction Publique qui doit notifier l'acceptation dans un délai de 3 mois. Passé ce délai, la démission est réputée acceptée.",
+      "articles_references": [110],
+      "mots_cles": ["démission", "procédure", "3 mois", "acceptation"]
+    },
+    {
+      "id": 64,
+      "categorie": "cessation_service",
+      "question": "Quel est l'âge de la retraite pour les fonctionnaires ?",
+      "reponse": "Selon l'article 116, l'âge de la retraite est de : 60 ans pour les hiérarchies B1, B2, C et les contractuels permanents ; 65 ans pour les hiérarchies A1, A2 et A3 ; 70 ans pour les professeurs de rang magistral de l'Enseignement Supérieur.",
+      "articles_references": [116],
+      "mots_cles": ["retraite", "âge", "60 ans", "65 ans", "70 ans"]
+    },
+    {
+      "id": 65,
+      "categorie": "cessation_service",
+      "question": "Peut-on prendre sa retraite avant l'âge limite ?",
+      "reponse": "Oui. Selon l'article 117, tout agent ayant accompli 15 ans de service ou plus a droit à une pension proportionnelle et peut faire valoir ses droits à la retraite.",
+      "articles_references": [117],
+      "mots_cles": ["retraite anticipée", "15 ans", "pension proportionnelle"]
+    },
+    {
+      "id": 66,
+      "categorie": "cessation_service",
+      "question": "Que perçoivent les ayants droit en cas de décès d'un agent ?",
+      "reponse": "Selon l'article 119, en cas de décès, un capital décès de 3 mois de traitement est versé aux ayants droit. Une pension de réversion leur est allouée si l'agent avait cumulé au moins 15 ans de service. En cas de décès lié au service, le capital décès est quintuplé (article 121).",
+      "articles_references": [119, 121],
+      "mots_cles": ["décès", "capital décès", "pension de réversion", "ayants droit"]
+    },
+    {
+      "id": 67,
+      "categorie": "cessation_service",
+      "question": "L'agent radié garde-t-il l'obligation de discrétion ?",
+      "reponse": "Oui. Selon l'article 109, l'agent radié des effectifs reste lié par l'obligation de discrétion professionnelle pour tout ce dont il a eu connaissance dans l'exercice de ses fonctions antérieures, sous peine de poursuite judiciaire.",
+      "articles_references": [109],
+      "mots_cles": ["radiation", "discrétion", "secret", "obligation"]
+    },
+    {
+      "id": 68,
+      "categorie": "contractuels",
+      "question": "Quels emplois peuvent occuper les agents contractuels ?",
+      "reponse": "Selon l'article 195, les agents contractuels ont vocation à occuper les emplois publics permanents et les emplois publics temporaires destinés à des activités conjoncturelles des administrations.",
+      "articles_references": [195, 196],
+      "mots_cles": ["contractuels", "emplois", "permanents", "temporaires"]
+    },
+    {
+      "id": 69,
+      "categorie": "contractuels",
+      "question": "Les contractuels peuvent-ils devenir fonctionnaires ?",
+      "reponse": "Oui. Selon l'article 200, la nomination en tant que contractuel ne confère aucune vocation automatique à être titularisé. Toutefois, les contractuels guinéens occupant un emploi permanent peuvent accéder aux emplois de fonctionnaire dans les conditions normales de recrutement (par concours).",
+      "articles_references": [200],
+      "mots_cles": ["contractuel", "fonctionnaire", "titularisation", "concours"]
+    },
+    {
+      "id": 70,
+      "categorie": "contractuels",
+      "question": "Comment sont classés les emplois des contractuels ?",
+      "reponse": "Selon l'article 197, les emplois des contractuels sont répartis en trois catégories (1ère, 2ème, 3ème). Selon l'article 198, chaque catégorie comporte 6 classes et 3 échelons, avec un salaire de base fixé par décret pour chaque échelon.",
+      "articles_references": [197, 198],
+      "mots_cles": ["contractuels", "catégories", "classes", "échelons"]
+    },
+    {
+      "id": 71,
+      "categorie": "contractuels",
+      "question": "Quelle est la durée de la période d'essai pour un contractuel ?",
+      "reponse": "Selon l'article 207, la période d'essai est de : 1 mois pour la 1ère catégorie, 2 mois pour la 2ème catégorie, 3 mois pour la 3ème catégorie. Elle est réduite à 5 jours pour les contrats d'un mois ou moins.",
+      "articles_references": [207],
+      "mots_cles": ["essai", "contractuel", "durée", "catégories"]
+    },
+    {
+      "id": 72,
+      "categorie": "contractuels",
+      "question": "Que doit contenir le contrat d'un agent contractuel ?",
+      "reponse": "Selon l'article 204, le contrat doit mentionner : le type d'emploi (permanent ou non), l'objet de l'engagement et les responsabilités, la localisation du poste, la catégorie/classe/échelle, le salaire de base, et la durée du contrat si elle est limitée.",
+      "articles_references": [204],
+      "mots_cles": ["contrat", "mentions", "salaire", "durée"]
+    },
+    {
+      "id": 73,
+      "categorie": "contractuels",
+      "question": "Les contractuels bénéficient-ils d'une prime d'ancienneté ?",
+      "reponse": "Oui. Selon l'article 216, les agents contractuels permanents bénéficient tous les 2 ans d'une prime d'ancienneté. Cette prime prend en compte les congés, congés maternité et congés maladie comme périodes de service effectif (article 217).",
+      "articles_references": [216, 217],
+      "mots_cles": ["prime ancienneté", "contractuels", "2 ans"]
+    },
+    {
+      "id": 74,
+      "categorie": "contractuels",
+      "question": "Un contractuel peut-il participer à des concours internes ?",
+      "reponse": "Oui. Selon l'article 221, les agents contractuels peuvent, après 5 ans au moins d'occupation de leur emploi, prendre part aux concours ouverts pour pourvoir aux emplois de niveau supérieur.",
+      "articles_references": [221],
+      "mots_cles": ["contractuel", "concours", "5 ans", "promotion"]
+    },
+    {
+      "id": 75,
+      "categorie": "definitions_generales",
+      "question": "Qu'est-ce qu'un emploi permanent ?",
+      "reponse": "Selon l'article 9, les emplois permanents sont ceux dont la durée n'est pas limitée dans le temps et qui sont indispensables aux missions essentielles de l'État. Ils comprennent : les emplois de conception/encadrement supérieur (hiérarchies A), les emplois moyens (hiérarchies B), et les emplois d'exécution (hiérarchie C).",
+      "articles_references": [9],
+      "mots_cles": ["emploi permanent", "définition", "hiérarchies"]
+    },
+    {
+      "id": 76,
+      "categorie": "definitions_generales",
+      "question": "Qu'est-ce que le cadre organique ?",
+      "reponse": "Selon l'article 10, le cadre organique est un tableau prévisionnel qui détermine le nombre et la qualité des emplois nécessaires à chaque administration, ainsi que l'évolution des effectifs sur 3 ans. Il est proposé par les ministres et autorisé par arrêté conjoint des Ministres de la Fonction Publique et du Budget.",
+      "articles_references": [10, 11],
+      "mots_cles": ["cadre organique", "effectifs", "planification", "3 ans"]
+    },
+    {
+      "id": 77,
+      "categorie": "carriere_avancement",
+      "question": "Quels types de stages de formation existent pour les fonctionnaires ?",
+      "reponse": "Selon les articles 185 à 188 : le stage de formation (nouvelles connaissances pour un emploi supérieur), le stage de perfectionnement (actualisation des connaissances, sans changement d'emploi ni bonification), et le stage de spécialisation (approfondissement de certains aspects du métier).",
+      "articles_references": [185, 186, 187, 188],
+      "mots_cles": ["formation", "perfectionnement", "spécialisation", "stages"]
+    },
+    {
+      "id": 78,
+      "categorie": "carriere_avancement",
+      "question": "La formation continue est-elle obligatoire ?",
+      "reponse": "Oui. Selon l'article 184, la formation continue et le perfectionnement en cours d'emploi sont obligatoires pour tout agent de l'État. Ils visent à améliorer, valoriser et approfondir les connaissances et aptitudes des fonctionnaires.",
+      "articles_references": [184],
+      "mots_cles": ["formation continue", "perfectionnement", "obligatoire"]
+    },
+    {
+      "id": 79,
+      "categorie": "carriere_avancement",
+      "question": "Qu'est-ce que le changement de corps ?",
+      "reponse": "Selon l'article 192, le changement de corps est le passage d'un corps à un autre au sein d'un même cadre unique, ou d'un corps d'un cadre unique à un corps d'un autre cadre unique. Il s'effectue par formation, recyclage ou examens professionnels (article 193).",
+      "articles_references": [192, 193],
+      "mots_cles": ["changement de corps", "cadre unique", "formation", "examen"]
+    },
+    {
+      "id": 80,
+      "categorie": "positions_administratives",
+      "question": "Combien de temps peut-on rester en position de détachement et hors cadre au total ?",
+      "reponse": "Selon l'article 166, la mise en position hors cadre est prononcée pour une période minimale de 2 ans renouvelable, sans que le cumul des périodes de détachement et hors cadre ne puisse excéder 15 ans sur l'ensemble de la carrière. Au-delà, l'agent est radié (article 167).",
+      "articles_references": [166, 167],
+      "mots_cles": ["hors cadre", "détachement", "15 ans", "radiation"]
+    },
+    {
+      "id": 81,
+      "categorie": "positions_administratives",
+      "question": "Que se passe-t-il si un fonctionnaire en disponibilité ne demande pas sa réintégration ?",
+      "reponse": "Selon l'article 163, le fonctionnaire doit solliciter la prolongation ou sa réintégration 3 mois avant l'échéance. Au-delà de 5 années de disponibilité cumulées, le fonctionnaire est d'office radié des effectifs (article 164).",
+      "articles_references": [163, 164],
+      "mots_cles": ["disponibilité", "réintégration", "radiation", "5 ans"]
+    },
+    {
+      "id": 82,
+      "categorie": "discipline_sanctions",
+      "question": "Que se passe-t-il si la décision disciplinaire n'intervient pas dans les 3 mois de suspension ?",
+      "reponse": "Selon l'article 75, si la décision définitive n'intervient pas dans les 3 mois de suspension, l'agent de l'État est automatiquement rétabli dans tous ses droits et fonctions, sans préjudice de la poursuite de l'action disciplinaire.",
+      "articles_references": [75],
+      "mots_cles": ["suspension", "3 mois", "rétablissement", "délai"]
+    },
+    {
+      "id": 83,
+      "categorie": "discipline_sanctions",
+      "question": "Un agent en détention est-il automatiquement suspendu ?",
+      "reponse": "Oui. Selon l'article 76, la suspension est prononcée d'office lorsque l'agent fait l'objet de poursuite pénale ou se trouve en détention. En cas de détention préventive, la suspension est prorogée d'office pour englober la période de détention.",
+      "articles_references": [76],
+      "mots_cles": ["détention", "suspension d'office", "poursuite pénale"]
+    },
+    {
+      "id": 84,
+      "categorie": "droits_agents",
+      "question": "Les syndicats peuvent-ils participer aux négociations salariales ?",
+      "reponse": "Oui. Selon l'article 37, les organisations syndicales ont qualité pour participer au niveau national à des négociations relatives à l'évolution des rémunérations et du pouvoir d'achat des agents avec les représentants du Gouvernement.",
+      "articles_references": [37, 38],
+      "mots_cles": ["syndicats", "négociations", "rémunération", "pouvoir d'achat"]
+    },
+    {
+      "id": 85,
+      "categorie": "droits_agents",
+      "question": "Un agent retraité peut-il rester membre d'un syndicat de fonctionnaires ?",
+      "reponse": "Non. Selon l'article 39, tout agent admis à faire valoir ses droits à la retraite perd d'office le droit d'appartenir à une organisation syndicale des agents de l'État.",
+      "articles_references": [39],
+      "mots_cles": ["retraité", "syndicat", "perte de droit"]
+    },
+    {
+      "id": 86,
+      "categorie": "droits_agents",
+      "question": "L'agent a-t-il droit à une prise en charge du transport lors d'une affectation ?",
+      "reponse": "Oui. Selon l'article 42, les agents de l'État ont droit à une réquisition de transport suite à leur affectation dans une localité hors de leur zone habituelle de service.",
+      "articles_references": [42],
+      "mots_cles": ["transport", "affectation", "réquisition", "mutation"]
+    },
+    {
+      "id": 87,
+      "categorie": "obligations_agents",
+      "question": "Un agent peut-il témoigner en justice sur des faits confidentiels de son service ?",
+      "reponse": "Oui, dans certains cas. Selon l'article 61, l'obligation de discrétion professionnelle ne s'applique pas à la dénonciation de crimes ou délits, ni aux témoignages demandés par une autorité judiciaire ou administrative compétente.",
+      "articles_references": [61],
+      "mots_cles": ["témoignage", "justice", "discrétion", "exception"]
+    },
+    {
+      "id": 88,
+      "categorie": "obligations_agents",
+      "question": "L'agent doit-il faire preuve de courtoisie envers les usagers ?",
+      "reponse": "Oui. Selon l'article 58, les agents sont au service des usagers et doivent traiter les dossiers avec diligence et faire preuve de courtoisie. Ils doivent fournir les informations que les usagers sont en droit d'obtenir.",
+      "articles_references": [58],
+      "mots_cles": ["courtoisie", "usagers", "diligence", "information"]
+    },
+    {
+      "id": 89,
+      "categorie": "conges",
+      "question": "Les représentants syndicaux ont-ils droit à des autorisations d'absence ?",
+      "reponse": "Oui. Selon l'article 29, des autorisations d'absence non déductibles du congé annuel peuvent être accordées avec maintien du salaire aux représentants syndicaux pour leurs réunions statutaires, et aux agents participant à des manifestations d'intérêt national.",
+      "articles_references": [29],
+      "mots_cles": ["autorisation d'absence", "syndicat", "maintien salaire"]
+    },
+    {
+      "id": 90,
+      "categorie": "conges",
+      "question": "Existe-t-il un congé de veuvage ?",
+      "reponse": "Oui. Selon l'article 26, l'agent en activité ayant perdu son conjoint a droit à un congé de veuvage. Les modalités de jouissance sont déterminées par arrêté du Ministre de la Fonction Publique.",
+      "articles_references": [26],
+      "mots_cles": ["congé de veuvage", "décès conjoint", "deuil"]
+    },
+    {
+      "id": 91,
+      "categorie": "carriere_avancement",
+      "question": "Le stagiaire perçoit-il un salaire pendant son stage probatoire ?",
+      "reponse": "Oui. Selon l'article 129, le fonctionnaire stagiaire perçoit pendant la durée du stage la rémunération correspondant à l'indice du premier échelon de la hiérarchie et du grade de l'emploi dans lequel il a vocation à être titularisé.",
+      "articles_references": [129],
+      "mots_cles": ["stagiaire", "rémunération", "premier échelon"]
+    },
+    {
+      "id": 92,
+      "categorie": "carriere_avancement",
+      "question": "Un fonctionnaire stagiaire peut-il être détaché ou mis en disponibilité ?",
+      "reponse": "Non. Selon l'article 131, le fonctionnaire stagiaire ne peut être mis en position de détachement ou de disponibilité, ni occuper des emplois de responsabilité, sauf si le défaut de titularisation est imputable à l'Administration.",
+      "articles_references": [131],
+      "mots_cles": ["stagiaire", "détachement", "disponibilité", "interdiction"]
+    },
+    {
+      "id": 93,
+      "categorie": "carriere_avancement",
+      "question": "Le temps de stage compte-t-il pour la retraite ?",
+      "reponse": "Oui. Selon l'article 137, le temps de stage probatoire est pris en compte pour une durée d'un an pour la constitution du droit à pension. Il compte aussi pour l'avancement (article 136).",
+      "articles_references": [136, 137],
+      "mots_cles": ["stage", "pension", "retraite", "avancement"]
+    },
+    {
+      "id": 94,
+      "categorie": "contractuels",
+      "question": "L'Administration doit-elle faciliter la formation des contractuels ?",
+      "reponse": "Oui. Selon l'article 220, l'Administration doit accorder toutes facilités et aides aux agents contractuels pour leur permettre d'acquérir une qualification professionnelle ou d'approfondir leur formation.",
+      "articles_references": [220],
+      "mots_cles": ["contractuels", "formation", "qualification", "aide"]
+    },
+    {
+      "id": 95,
+      "categorie": "contractuels",
+      "question": "Comment les contractuels sont-ils évalués ?",
+      "reponse": "Selon l'article 215, les contractuels font l'objet d'une évaluation de leur performance par le supérieur hiérarchique direct. Les objectifs sont fixés en début de période et les résultats évalués en fin de période lors d'un entretien individuel.",
+      "articles_references": [215],
+      "mots_cles": ["évaluation", "contractuels", "objectifs", "performance"]
+    },
+    {
+      "id": 96,
+      "categorie": "contractuels",
+      "question": "Existe-t-il une prime de rendement pour les contractuels ?",
+      "reponse": "Oui. Selon l'article 218, une prime annuelle de rendement est octroyée aux agents contractuels ayant fait preuve de mérite exceptionnel. Elle est calculée en fonction de taux applicables au salaire de base.",
+      "articles_references": [218],
+      "mots_cles": ["prime de rendement", "contractuels", "mérite"]
+    },
+    {
+      "id": 97,
+      "categorie": "definitions_generales",
+      "question": "Quels organes consultatifs existent dans la fonction publique ?",
+      "reponse": "Selon l'article 104, les organes consultatifs sont : le Conseil supérieur de la Fonction publique, la Commission nationale de gestion des carrières/formation, la Commission nationale des contrats, et le Conseil de discipline. Un conseil de discipline existe dans chaque ministère et préfecture (article 105).",
+      "articles_references": [104, 105],
+      "mots_cles": ["organes consultatifs", "conseil supérieur", "conseil de discipline", "commission"]
+    },
+    {
+      "id": 98,
+      "categorie": "obligations_agents",
+      "question": "Quelles sont les activités interdites aux agents de l'État ?",
+      "reponse": "Selon l'article 67, il est interdit aux agents de se livrer à des activités contraires aux lois ou portant atteinte à la sécurité du pays, à l'intégrité de la République et de ses institutions, ou d'appartenir à des mouvements qui se livrent à de telles activités.",
+      "articles_references": [67],
+      "mots_cles": ["activités interdites", "sécurité", "intégrité", "subversion"]
+    },
+    {
+      "id": 99,
+      "categorie": "obligations_agents",
+      "question": "Le supérieur hiérarchique est-il responsable des actes de ses subordonnés ?",
+      "reponse": "Oui. Selon l'article 54, le chef hiérarchique n'est dégagé d'aucune des responsabilités qui lui incombent du fait de l'action de ceux qui sont placés sous ses ordres, son autorité ou son contrôle.",
+      "articles_references": [54],
+      "mots_cles": ["responsabilité", "supérieur hiérarchique", "subordonnés"]
+    },
+    {
+      "id": 100,
+      "categorie": "definitions_generales",
+      "question": "Quand la loi L/2019/0027/AN est-elle entrée en vigueur et quelle loi a-t-elle abrogée ?",
+      "reponse": "Selon l'article 225, la loi prend effet à compter de sa date de promulgation (7 juin 2019). L'article 224 précise qu'elle abroge les dispositions de la loi L/2001/028/AN du 31 décembre 2001 portant statut général des fonctionnaires.",
+      "articles_references": [224, 225],
+      "mots_cles": ["entrée en vigueur", "abrogation", "2019", "2001"]
+    }
+  ]
+}

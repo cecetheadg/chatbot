@@ -1,0 +1,177 @@
+# ============================================
+# Chatbot L0027 - Docker Compose (Development)
+# Statut Général des Agents de l'État de Guinée
+# ============================================
+# 
+# Development setup with ports exposed for local access
+# Usage: docker compose -f docker-compose.dev.yml up -d
+
+services:
+  # ============================================
+  # Application Chatbot
+  # ============================================
+  chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chatbot_l0027_dev
+    restart: unless-stopped
+    ports:
+      - "8000:8000"  # Exposed for direct access
+    environment:
+      - POSTGRES_HOST=postgres
+      - REDIS_HOST=redis
+      - QDRANT_HOST=qdrant
+      - DEBUG=true  # Enable debug mode
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data:ro
+      - ./logs:/app/logs
+      # Mount source code for hot-reload (optional, if using dev Dockerfile)
+      - ./app:/app/app:ro
+      # Mount frontend directory for serving widget and embed script
+      - ./frontend:/app/frontend:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+    networks:
+      - chatbot_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    # No Traefik labels for development
+
+  # ============================================
+  # Base de données PostgreSQL
+  # ============================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: chatbot_postgres_dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-chatbot_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-chatbot_password}
+      POSTGRES_DB: ${POSTGRES_DB:-chatbot_l0027}
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+      - ./scripts/init_db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"  # Exposed for direct database access
+    networks:
+      - chatbot_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-chatbot_user} -d ${POSTGRES_DB:-chatbot_l0027}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ============================================
+  # Cache Redis
+  # ============================================
+  redis:
+    image: redis:7-alpine
+    container_name: chatbot_redis_dev
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data_dev:/data
+    ports:
+      - "6379:6379"  # Exposed for direct Redis access
+    networks:
+      - chatbot_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ============================================
+  # Base vectorielle Qdrant
+  # ============================================
+  qdrant:
+    image: qdrant/qdrant:v1.11.1
+    container_name: chatbot_qdrant_dev
+    restart: unless-stopped
+    environment:
+      - QDRANT__SERVICE__GRPC_PORT=6334
+    volumes:
+      - qdrant_data_dev:/qdrant/storage
+    ports:
+      - "6333:6333"  # REST API - Exposed for direct access
+      - "6334:6334"  # gRPC - Exposed for direct access
+    networks:
+      - chatbot_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ============================================
+  # Interface d'administration (optionnel)
+  # ============================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: chatbot_pgadmin_dev
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@chatbot.local
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data_dev:/var/lib/pgadmin
+    networks:
+      - chatbot_network
+    depends_on:
+      - postgres
+    profiles:
+      - tools
+
+  # ============================================
+  # Redis Commander (optionnel)
+  # ============================================
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: chatbot_redis_commander_dev
+    restart: unless-stopped
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "8081:8081"
+    networks:
+      - chatbot_network
+    depends_on:
+      - redis
+    profiles:
+      - tools
+
+# ============================================
+# Volumes (Development - separate from production)
+# ============================================
+volumes:
+  postgres_data_dev:
+    driver: local
+  redis_data_dev:
+    driver: local
+  qdrant_data_dev:
+    driver: local
+  pgadmin_data_dev:
+    driver: local
+
+# ============================================
+# Networks
+# ============================================
+networks:
+  chatbot_network:
+    driver: bridge
+    name: chatbot_l0027_network_dev
+

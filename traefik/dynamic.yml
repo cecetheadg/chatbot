@@ -1,0 +1,79 @@
+# ============================================
+# Traefik Dynamic Configuration
+# Middleware and additional routing rules
+# ============================================
+
+http:
+  middlewares:
+    # Security headers middleware
+    security-headers:
+      headers:
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 31536000
+        # X-Frame-Options retiré - Utilisation de Content-Security-Policy frame-ancestors à la place
+        # (configuré dans app/main.py via FrameOptionsMiddleware)
+        customRequestHeaders:
+          X-Forwarded-Proto: "https"
+
+    # CORS middleware (Safari-compatible)
+    cors-headers:
+      headers:
+        accessControlAllowMethods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - OPTIONS
+          - PATCH
+        accessControlAllowOriginList:
+          - "https://chatbot.dfgp.fonctionpublique.gov.gn"
+          - "https://www.laufane.com"
+          - "https://dgfp.fonctionpublique.gov.gn/services"
+          - "*"
+        accessControlAllowHeaders:
+          - "Content-Type"
+          - "Authorization"
+          - "X-Requested-With"
+          - "Accept"
+          - "Origin"
+          - "Access-Control-Request-Method"
+          - "Access-Control-Request-Headers"
+        accessControlAllowCredentials: true
+        accessControlExposeHeaders:
+          - "Content-Length"
+          - "Content-Type"
+          - "Date"
+          - "Server"
+        accessControlMaxAge: 86400
+
+    # Rate limiting middleware (optimized for high traffic)
+    rate-limit:
+      rateLimit:
+        average: 500  # 500 requests per minute per IP
+        period: 1m
+        burst: 100  # Allow burst of 100 requests
+    
+    # Stricter rate limit for API endpoints
+    rate-limit-api:
+      rateLimit:
+        average: 300  # 300 API requests per minute per IP
+        period: 1m
+        burst: 50
+
+    # Compress middleware
+    compress:
+      compress: {}
+
+    # Basic auth for dashboard (optional - change credentials!)
+    dashboard-auth:
+      basicAuth:
+        users:
+          - "admin:$2y$05$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # Change this! Use: htpasswd -nb admin password
+
+  # Routers and services are defined via Docker labels in docker compose configuration
+  # This file only contains middleware definitions for reusability
+

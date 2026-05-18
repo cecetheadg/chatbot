@@ -1,0 +1,64 @@
+# ============================================
+# Traefik Reverse Proxy - Standalone
+# Chatbot L0027 - Production
+# ============================================
+# 
+# This Traefik instance runs independently from the chatbot services
+# It can be started/stopped without affecting the chatbot services
+# 
+# Usage:
+#   Start:   docker compose -f docker-compose.traefik.yml up -d
+#   Stop:    docker compose -f docker-compose.traefik.yml down
+#   Logs:    docker compose -f docker-compose.traefik.yml logs -f
+
+services:
+  # ============================================
+  # Reverse Proxy Traefik
+  # ============================================
+  traefik:
+    image: traefik:v3.0
+    container_name: chatbot_traefik
+    restart: unless-stopped
+    command:
+      - "--configFile=/etc/traefik/traefik.yml"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"  # Dashboard (optional, remove in production or secure it)
+    environment:
+      - TZ=UTC
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik/traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./traefik/dynamic.yml:/etc/traefik/dynamic.yml:ro
+      - traefik_logs:/var/log/traefik
+      - letsencrypt:/letsencrypt
+    networks:
+      - chatbot_network
+    labels:
+      - "traefik.enable=true"
+      # Dashboard configuration (optional - secure in production)
+      - "traefik.http.routers.dashboard.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      - "traefik.http.routers.dashboard.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.dashboard.middlewares=dashboard-auth"
+
+# ============================================
+# Volumes
+# ============================================
+volumes:
+  traefik_logs:
+    driver: local
+  letsencrypt:
+    driver: local
+
+# ============================================
+# Networks
+# ============================================
+networks:
+  chatbot_network:
+    name: chatbot_l0027_network
+    external: false  # Network will be created by Traefik, shared with chatbot services
+    driver: bridge
+

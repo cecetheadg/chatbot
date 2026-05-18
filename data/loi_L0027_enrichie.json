@@ -1,0 +1,1217 @@
+{
+  "document": {
+    "identifiant": "L/2019/0027/AN",
+    "titre_complet": "Loi Portant Statut Général des Agents de l'État",
+    "titre_court": "Statut Général des Agents de l'État",
+    "date_promulgation": "2019-06-07",
+    "pays": "République de Guinée",
+    "autorite_emettrice": "Assemblée Nationale",
+    "ministere_tutelle": "Ministère de la Fonction Publique, de la Réforme de l'État et de la Modernisation de l'Administration",
+    "total_articles": 225,
+    "langue": "fr",
+    "version": "1.0",
+    "statut": "en_vigueur",
+    "abroge": ["L/2001/028/AN"],
+    "mots_cles_globaux": ["fonction publique", "agents de l'État", "fonctionnaires", "contractuels", "carrière", "droits", "obligations", "discipline", "rémunération"]
+  },
+  "structure": {
+    "titres": [
+      {
+        "numero": 1,
+        "intitule": "Dispositions générales",
+        "articles": [1, 2, 3, 4, 5, 6, 7]
+      },
+      {
+        "numero": 2,
+        "intitule": "Des emplois",
+        "articles": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+      },
+      {
+        "numero": 3,
+        "intitule": "Droits et garanties des agents de l'État",
+        "articles": [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
+      },
+      {
+        "numero": 4,
+        "intitule": "Obligations des agents de l'État",
+        "articles": [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
+      },
+      {
+        "numero": 5,
+        "intitule": "Régime disciplinaire",
+        "articles": [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88]
+      },
+      {
+        "numero": 6,
+        "intitule": "Récompenses",
+        "articles": [89, 90, 91, 92, 93, 94, 95, 96, 97, 98]
+      },
+      {
+        "numero": 7,
+        "intitule": "Rémunération",
+        "articles": [99, 100, 101]
+      },
+      {
+        "numero": 8,
+        "intitule": "Organes de gestion et consultatifs",
+        "articles": [102, 103, 104, 105, 106]
+      },
+      {
+        "numero": 9,
+        "intitule": "Cessation définitive de service",
+        "articles": [107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121]
+      },
+      {
+        "numero": 10,
+        "intitule": "Dispositions particulières aux fonctionnaires",
+        "sous_titres": [
+          {
+            "intitule": "Stage probatoire et titularisation",
+            "articles": [122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142]
+          },
+          {
+            "intitule": "Positions administratives",
+            "articles": [143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169]
+          },
+          {
+            "intitule": "Carrière et avancement",
+            "articles": [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194]
+          }
+        ]
+      },
+      {
+        "numero": 11,
+        "intitule": "Dispositions particulières aux agents contractuels",
+        "articles": [195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222]
+      },
+      {
+        "numero": 12,
+        "intitule": "Dispositions transitoires et finales",
+        "articles": [223, 224, 225]
+      }
+    ]
+  },
+  "articles": [
+    {
+      "numero": 1,
+      "contenu": "Les dispositions de la présente Loi fixent les principes fondamentaux de gestion des emplois et des agents de l'Etat.",
+      "theme_principal": "objet_loi",
+      "themes_secondaires": ["dispositions_generales"],
+      "mots_cles": ["principes fondamentaux", "gestion", "emplois", "agents de l'État"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "principe"
+    },
+    {
+      "numero": 2,
+      "contenu": "Est agent de l'Etat toute personne physique recrutée pour assurer, à titre permanent ou temporaire, directement et personnellement, une mission de service public au sein des services centraux, déconcentrés et décentralisés des administrations et institutions publiques.",
+      "theme_principal": "definition",
+      "themes_secondaires": ["agents_etat", "service_public"],
+      "mots_cles": ["agent de l'État", "personne physique", "service public", "services centraux", "déconcentrés", "décentralisés"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "définition",
+      "definitions": {
+        "agent_etat": "Toute personne physique recrutée pour assurer, à titre permanent ou temporaire, directement et personnellement, une mission de service public"
+      }
+    },
+    {
+      "numero": 3,
+      "contenu": "Les agents de l'Etat, régis par la présente loi sont les fonctionnaires et les agents contractuels de l'Etat.",
+      "theme_principal": "categories_agents",
+      "themes_secondaires": ["fonctionnaires", "contractuels"],
+      "mots_cles": ["fonctionnaires", "agents contractuels", "catégories"],
+      "entites_concernees": ["fonctionnaires", "agents contractuels"],
+      "type_disposition": "classification"
+    },
+    {
+      "numero": 4,
+      "contenu": "Les dispositions de la présente loi ne s'appliquent pas aux membres des forces armées et aux magistrats, qui sont régis par des dispositions spécifiques.",
+      "theme_principal": "champ_application",
+      "themes_secondaires": ["exclusions"],
+      "mots_cles": ["forces armées", "magistrats", "exclusion", "dispositions spécifiques"],
+      "entites_concernees": ["forces armées", "magistrats"],
+      "type_disposition": "exclusion"
+    },
+    {
+      "numero": 5,
+      "contenu": "Selon la constitution en son article 20, le droit au travail est reconnu à tous, et nul ne peut être lésé dans son travail en raison de son sexe, de sa race, de ses opinions, ou de toute autre cause de discrimination. L'égalité de droit au travail est consacrée dans le présent Statut, par la possibilité d'adoption de \"Mesures Positives\" par voie réglementaire pour la promotion de l'égalité des chances entre femme et homme dans l'emploi public. Ces Mesures Positives permettent d'assouplir certains critères afin d'assurer un équilibre satisfaisant d'accès à l'emploi entre les sexes.",
+      "theme_principal": "egalite",
+      "themes_secondaires": ["non_discrimination", "mesures_positives", "genre"],
+      "mots_cles": ["droit au travail", "égalité", "non-discrimination", "mesures positives", "genre", "sexe"],
+      "entites_concernees": ["tous les agents"],
+      "type_disposition": "principe",
+      "references_constitutionnelles": ["Article 20 de la Constitution"]
+    },
+    {
+      "numero": 6,
+      "contenu": "L'expression \"Mesures Positives\" désigne un ensemble cohérent d'actions de caractère temporaire visant spécifiquement à améliorer la situation des membres d'un groupe cible dans la société.",
+      "theme_principal": "definition",
+      "themes_secondaires": ["mesures_positives"],
+      "mots_cles": ["mesures positives", "actions temporaires", "groupe cible"],
+      "entites_concernees": ["groupes cibles"],
+      "type_disposition": "définition",
+      "definitions": {
+        "mesures_positives": "Ensemble cohérent d'actions de caractère temporaire visant spécifiquement à améliorer la situation des membres d'un groupe cible"
+      }
+    },
+    {
+      "numero": 7,
+      "contenu": "Un arrêté du Ministre en charge de la Fonction Publique détermine les modalités d'applications des dispositions des articles 5 et 6 de la présente Loi.",
+      "theme_principal": "renvoi_reglementaire",
+      "themes_secondaires": ["mesures_positives"],
+      "mots_cles": ["arrêté", "modalités d'application"],
+      "entites_concernees": ["Ministre de la Fonction Publique"],
+      "type_disposition": "renvoi",
+      "articles_lies": [5, 6]
+    },
+    {
+      "numero": 8,
+      "contenu": "L'emploi est la dénomination professionnelle d'un ensemble d'activités nécessitant des compétences spécifiques et concourant à l'exécution d'une mission déterminée. Il s'exécute à travers un poste de travail géographiquement localisé. Les emplois de la Fonction Publique comprennent des emplois permanents et des emplois temporaires.",
+      "theme_principal": "definition",
+      "themes_secondaires": ["emploi", "poste_travail"],
+      "mots_cles": ["emploi", "compétences", "poste de travail", "emplois permanents", "emplois temporaires"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "définition",
+      "definitions": {
+        "emploi": "Dénomination professionnelle d'un ensemble d'activités nécessitant des compétences spécifiques et concourant à l'exécution d'une mission déterminée"
+      }
+    },
+    {
+      "numero": 9,
+      "contenu": "Les emplois permanents sont ceux dont la durée n'est pas limitée dans le temps, et qui sont indispensables à l'accomplissement des missions essentielles dévolues aux administrations centrales et déconcentrées de l'Etat. Ils sont constitués : des emplois de conception, ou d'encadrement supérieur, pour les hiérarchies A1, A2 et A3 ; des emplois moyens, ou d'encadrement intermédiaire, pour les hiérarchies B1 et B2 ; des emplois d'exécution ou d'application, pour la hiérarchie C.",
+      "theme_principal": "classification_emplois",
+      "themes_secondaires": ["emplois_permanents", "hierarchies"],
+      "mots_cles": ["emplois permanents", "hiérarchies", "A1", "A2", "A3", "B1", "B2", "C", "conception", "encadrement", "exécution"],
+      "entites_concernees": ["fonctionnaires"],
+      "type_disposition": "classification",
+      "valeurs_numeriques": {
+        "hierarchies_conception": ["A1", "A2", "A3"],
+        "hierarchies_moyens": ["B1", "B2"],
+        "hierarchies_execution": ["C"]
+      }
+    },
+    {
+      "numero": 10,
+      "contenu": "Les emplois permanents sont prévus dans un tableau prévisionnel appelé 'Cadre Organique' qui détermine le nombre et la qualité des emplois nécessaires à la réalisation des missions de chaque administration ou institution concernée par la présente Loi ainsi que l'évolution des effectifs à moyen terme pour une durée de trois ans. Le cadre organique prévu à l'alinéa ci-dessus, est proposé par les ministres ou présidents d'institutions concernés et autorisé par un arrêté conjoint pris par les ministres en charge de la Fonction Publique et du Budget.",
+      "theme_principal": "cadre_organique",
+      "themes_secondaires": ["planification_effectifs"],
+      "mots_cles": ["cadre organique", "effectifs", "planification", "trois ans"],
+      "entites_concernees": ["administrations", "institutions"],
+      "type_disposition": "organisation",
+      "valeurs_numeriques": {
+        "duree_cadre_organique_ans": 3
+      }
+    },
+    {
+      "numero": 11,
+      "contenu": "Chaque emploi prévu dans le cadre organique est identifié par une appellation normalisée, sa localisation précisée dans la structure administrative ainsi que le profil professionnel y correspondant, en termes de compétences.",
+      "theme_principal": "cadre_organique",
+      "themes_secondaires": ["identification_emploi"],
+      "mots_cles": ["appellation", "localisation", "profil professionnel", "compétences"],
+      "entites_concernees": ["administrations"],
+      "type_disposition": "organisation"
+    },
+    {
+      "numero": 12,
+      "contenu": "Les emplois temporaires sont ceux destinés à la réalisation des activités qui sont limitées dans le temps, au sein des administrations ou institutions publiques. Ils sont en général tenus par des contractuels soumis à une législation particulière.",
+      "theme_principal": "classification_emplois",
+      "themes_secondaires": ["emplois_temporaires", "contractuels"],
+      "mots_cles": ["emplois temporaires", "contractuels", "durée limitée"],
+      "entites_concernees": ["agents contractuels"],
+      "type_disposition": "définition"
+    },
+    {
+      "numero": 13,
+      "contenu": "L'accès aux emplois permanents de la Fonction Publique est ouvert à égalité de droit, sans distinction aucune, à toute personne de nationalité guinéenne remplissant les conditions requises pour chaque emploi postulé, sous réserve des sujétions propres à certains emplois définis par une réglementation spécifique.",
+      "theme_principal": "acces_emploi",
+      "themes_secondaires": ["egalite", "nationalite"],
+      "mots_cles": ["accès", "égalité", "nationalité guinéenne", "conditions"],
+      "entites_concernees": ["candidats"],
+      "type_disposition": "principe"
+    },
+    {
+      "numero": 14,
+      "contenu": "Nul ne peut être recruté à la Fonction Publique s'il ne remplit les conditions suivantes : 1- posséder la nationalité guinéenne ; 2- jouir de ses droits civils et civiques ; 3- être de bonne moralité ; 4- présenter un Bulletin de casier judiciaire dont les mentions portées sont compatibles avec l'exercice des fonctions sollicitées ; 5- remplir les conditions d'aptitudes physiques et mentales exigées pour l'exercice de l'emploi ; 6- pour les fonctionnaires, être âgés de dix-huit ans au moins et de quarante ans au plus pour les candidatures aux emplois moyens et d'exécution des hiérarchies B2, B1 et C, et de quarante-cinq ans au plus pour les candidatures aux emplois supérieures des hiérarchies A3, A2 et A1 ; 7- justifier des diplômes ou titres de formation requis pour accéder au corps pour lequel le recrutement doit s'effectuer.",
+      "theme_principal": "conditions_recrutement",
+      "themes_secondaires": ["nationalite", "age", "aptitude", "diplomes"],
+      "mots_cles": ["recrutement", "nationalité", "droits civils", "moralité", "casier judiciaire", "aptitude", "âge", "diplômes"],
+      "entites_concernees": ["candidats"],
+      "type_disposition": "condition",
+      "valeurs_numeriques": {
+        "age_minimum": 18,
+        "age_maximum_hierarchies_B_C": 40,
+        "age_maximum_hierarchies_A": 45
+      }
+    },
+    {
+      "numero": 15,
+      "contenu": "Le candidat à un emploi permanent doit produire les pièces suivantes à l'appui de sa demande : 1- un extrait d'acte de naissance ou de jugement supplétif en tenant lieu ; 2- un extrait de casier judiciaire datant de moins de trois mois ; 3- un certificat de résidence datant de moins de trois mois ; 4- un certificat de nationalité ; 5- quatre photos d'identité ; 6- un certificat médical d'aptitudes à occuper le poste datant de trois mois au plus ; 7- les diplômes ou titres universitaires, les références professionnelles ou techniques permettant d'accéder au corps, ou à l'emploi.",
+      "theme_principal": "dossier_candidature",
+      "themes_secondaires": ["pieces_justificatives"],
+      "mots_cles": ["pièces", "acte de naissance", "casier judiciaire", "résidence", "nationalité", "photos", "certificat médical", "diplômes"],
+      "entites_concernees": ["candidats"],
+      "type_disposition": "procédure",
+      "valeurs_numeriques": {
+        "validite_casier_mois": 3,
+        "validite_residence_mois": 3,
+        "validite_certificat_medical_mois": 3,
+        "nombre_photos": 4
+      }
+    },
+    {
+      "numero": 16,
+      "contenu": "Nonobstant les dispositions de l'article 14 ci-dessus, l'Administration Publique peut, lorsque les circonstances le justifient, recruter comme contractuels des candidats de nationalité guinéenne ou étrangère.",
+      "theme_principal": "recrutement_contractuels",
+      "themes_secondaires": ["nationalite_etrangere", "derogation"],
+      "mots_cles": ["contractuels", "nationalité étrangère", "dérogation"],
+      "entites_concernees": ["agents contractuels", "étrangers"],
+      "type_disposition": "dérogation",
+      "articles_lies": [14]
+    },
+    {
+      "numero": 17,
+      "contenu": "Le mode d'accès aux emplois de la Fonction Publique est le concours. Il ne peut être dérogé au principe de recrutement par voie de concours que de façon exceptionnelle et en application des textes en vigueur, notamment des dispositions relatives aux conditions de recrutement des contractuels, définies dans la présente Loi. Les conditions d'organisation des concours sont fixées par arrêté du Ministre en charge de la Fonction Publique, après consultation des ministères concernés.",
+      "theme_principal": "mode_recrutement",
+      "themes_secondaires": ["concours"],
+      "mots_cles": ["concours", "recrutement", "dérogation", "arrêté"],
+      "entites_concernees": ["candidats", "Ministre de la Fonction Publique"],
+      "type_disposition": "principe"
+    },
+    {
+      "numero": 18,
+      "contenu": "Indépendamment des droits et obligations résultant des dispositions spécifiques qui leur sont applicables ou de l'emploi qu'ils peuvent être appelés à exercer, les agents de la Fonction Publique sont et demeurent soumis aux obligations générales prévues par le présent titre et ils bénéficient des droits et garanties qui y sont énoncés.",
+      "theme_principal": "droits_obligations",
+      "themes_secondaires": ["dispositions_generales"],
+      "mots_cles": ["droits", "obligations", "garanties"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "principe"
+    },
+    {
+      "numero": 19,
+      "contenu": "Tout agent de l'Etat a droit, après service accompli, à une rémunération comprenant le traitement ou le salaire soumis à retenue pour pension et cotisation au titre de la protection sociale des Agents de l'Etat. Il peut bénéficier d'indemnités ou de tous autres avantages en fonction des contraintes et sujétions particulières propres à l'exercice de son emploi. Un arrêté du Ministre de la Fonction publique, fixent les conditions et modalités de détermination et de versement des traitements, salaires et avantages.",
+      "theme_principal": "remuneration",
+      "themes_secondaires": ["traitement", "indemnites", "protection_sociale"],
+      "mots_cles": ["rémunération", "traitement", "salaire", "pension", "protection sociale", "indemnités", "avantages"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 20,
+      "contenu": "Les agents de l'Etat bénéficient d'une protection sociale en matière de risques professionnels, de prestations familiales, de soins de santé et de pension de retraite dans des conditions fixées par la loi.",
+      "theme_principal": "protection_sociale",
+      "themes_secondaires": ["risques_professionnels", "prestations_familiales", "sante", "retraite"],
+      "mots_cles": ["protection sociale", "risques professionnels", "prestations familiales", "soins de santé", "pension de retraite"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 21,
+      "contenu": "Le personnel féminin célibataire, chef de famille de la Fonction publique, et la femme agent de l'Etat dont le mari est non agent de l'Administration publique, ont droit aux avantages liés aux allocations familiales.",
+      "theme_principal": "allocations_familiales",
+      "themes_secondaires": ["personnel_feminin", "chef_famille"],
+      "mots_cles": ["personnel féminin", "célibataire", "chef de famille", "allocations familiales"],
+      "entites_concernees": ["femmes agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 22,
+      "contenu": "Les Agents de l'Etat ont droit à un congé annuel de trente jours calendaires consécutifs avec salaire entier, pour onze mois de services accomplis. Le Congé est une période d'interruption provisoire du service pour un motif d'intérêts personnels ou publics. Le Congé est un droit reconnu aux agents de l'Etat. L'Administration peut échelonner la période de jouissance du congé d'un fonctionnaire, si les nécessités de service l'exigent.",
+      "theme_principal": "conge_annuel",
+      "themes_secondaires": ["droits_conges"],
+      "mots_cles": ["congé annuel", "30 jours", "11 mois", "salaire entier"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit",
+      "valeurs_numeriques": {
+        "duree_conge_jours": 30,
+        "service_requis_mois": 11
+      }
+    },
+    {
+      "numero": 23,
+      "contenu": "Le personnel féminin de la Fonction Publique bénéficie d'un congé de maternité d'une durée totale de quatorze semaines dont elle peut jouir à sa convenance. La décision de congé de maternité est prise par le Ministre ou par la hiérarchie supérieure dont relève la femme.",
+      "theme_principal": "conge_maternite",
+      "themes_secondaires": ["personnel_feminin"],
+      "mots_cles": ["congé de maternité", "14 semaines", "personnel féminin"],
+      "entites_concernees": ["femmes agents de l'État"],
+      "type_disposition": "droit",
+      "valeurs_numeriques": {
+        "duree_conge_maternite_semaines": 14
+      }
+    },
+    {
+      "numero": 24,
+      "contenu": "La jouissance consécutive ou cumulative d'un congé de maternité et d'un congé administratif annuel est possible.",
+      "theme_principal": "cumul_conges",
+      "themes_secondaires": ["conge_maternite", "conge_annuel"],
+      "mots_cles": ["cumul", "congé de maternité", "congé annuel"],
+      "entites_concernees": ["femmes agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 25,
+      "contenu": "Le congé annuel est obligatoire pour l'agent. Il constitue un droit qu'aucune sanction encourue par l'agent ne peut remettre en cause. La décision de la prise de congé par l'Agent, est prise par le ministre ou par la hiérarchie supérieure dont il relève.",
+      "theme_principal": "conge_annuel",
+      "themes_secondaires": ["caractere_obligatoire"],
+      "mots_cles": ["congé obligatoire", "droit inaliénable", "sanction"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 26,
+      "contenu": "L'agent en activité ayant perdu son conjoint, a droit à un congé de veuvage. Un arrêté du Ministre en charge de la Fonction Publique détermine les modalités de jouissance de ce congé.",
+      "theme_principal": "conge_veuvage",
+      "themes_secondaires": ["deces_conjoint"],
+      "mots_cles": ["congé de veuvage", "décès conjoint"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 27,
+      "contenu": "Les agents de l'Etat, en dehors des congés suscités, ont droit : au congé de maladie qui couvre les périodes d'interruption de service pour raison de maladie ; au congé de formation qui couvre les périodes d'interruption de service pour raisons de formation ou de perfectionnement ; au congé d'expectative qui couvre les situations d'attentes d'affectation non imputables au fonctionnaire ; au congé de circonstance qui couvre une interruption de services, justifié par un évènement à caractère familial ; au congé d'intérêt public qui couvre les périodes d'interruption de service justifiées par : l'exercice de fonctions publiques électives compatibles avec l'occupation normale de l'emploi pendant la durée des sessions, la participation à une manifestation officielle, nationale ou internationale, la participation à un congrès ou à une formation syndicale pour le représentant d'un syndicat de fonctionnaire ; au congé spécial qui couvre une interruption de service exceptionnelle justifié par de motifs personnel de l'agent. Le congé spécial ne peut excéder un mois par an. Il peut être refusé dans l'intérêt du service.",
+      "theme_principal": "types_conges",
+      "themes_secondaires": ["conge_maladie", "conge_formation", "conge_expectative", "conge_circonstance", "conge_interet_public", "conge_special"],
+      "mots_cles": ["congé maladie", "congé formation", "congé expectative", "congé circonstance", "congé intérêt public", "congé spécial"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit",
+      "valeurs_numeriques": {
+        "duree_max_conge_special_mois": 1
+      }
+    },
+    {
+      "numero": 28,
+      "contenu": "L'administration a toute liberté pour échelonner, compte tenu des nécessités de service, la période de jouissance du congé. Toutefois, le congé ne peut être fractionné en plus de deux tranches de quinze jours chacune. En aucun cas, il ne peut être versé d'indemnités compensatrices de congé.",
+      "theme_principal": "modalites_conge",
+      "themes_secondaires": ["fractionnement", "indemnites"],
+      "mots_cles": ["échelonnement", "fractionnement", "15 jours", "pas d'indemnité compensatrice"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "modalité",
+      "valeurs_numeriques": {
+        "tranches_maximum": 2,
+        "duree_tranche_jours": 15
+      }
+    },
+    {
+      "numero": 29,
+      "contenu": "Des autorisations d'absence non déductibles du congé annuel peuvent être accordées avec maintien du traitement ou du salaire : aux représentants dûment mandatés des organisations syndicales à l'occasion de leurs réunions statutaires ; aux agents appelés à participer à des actions ou à des manifestations d'intérêt national, ou devant accomplir une mission d'intérêt public. Ces autorisations d'absence sont accordées par le Ministre ou par la hiérarchie supérieure pour les agents des services centraux et par les Gouverneurs ou Préfets pour les agents des services déconcentrés.",
+      "theme_principal": "autorisations_absence",
+      "themes_secondaires": ["syndicat", "interet_national"],
+      "mots_cles": ["autorisation d'absence", "non déductible", "syndicat", "intérêt national"],
+      "entites_concernees": ["agents de l'État", "représentants syndicaux"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 30,
+      "contenu": "Des permissions exceptionnelles avec maintien du salaire pour événements familiaux et non déductibles du congé annuel dans la limite de dix jours au maximum par an, peuvent être accordées aux agents.",
+      "theme_principal": "permissions_exceptionnelles",
+      "themes_secondaires": ["evenements_familiaux"],
+      "mots_cles": ["permissions exceptionnelles", "événements familiaux", "10 jours", "non déductible"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit",
+      "valeurs_numeriques": {
+        "duree_max_permissions_jours": 10
+      }
+    },
+    {
+      "numero": 31,
+      "contenu": "Les conditions d'octroi des permissions exceptionnelles prévues à l'article ci-dessus sont fixées par un arrêté du Ministre en charge de la Fonction Publique.",
+      "theme_principal": "renvoi_reglementaire",
+      "themes_secondaires": ["permissions_exceptionnelles"],
+      "mots_cles": ["arrêté", "conditions", "permissions exceptionnelles"],
+      "entites_concernees": ["Ministre de la Fonction Publique"],
+      "type_disposition": "renvoi",
+      "articles_lies": [30]
+    },
+    {
+      "numero": 32,
+      "contenu": "Les Agents de l'État ont droit dans les conditions et modalités précisées par les dispositions spécifiques qui leur sont applicables, à des congés ou suspensions de contrat pour maladie.",
+      "theme_principal": "conge_maladie",
+      "themes_secondaires": ["suspension_contrat"],
+      "mots_cles": ["congé maladie", "suspension de contrat"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 33,
+      "contenu": "Tout agent de l'État a droit, après cessation définitive des fonctions, à une pension de retraite dans les conditions fixées par le régime des pensions qui lui est applicable.",
+      "theme_principal": "pension_retraite",
+      "themes_secondaires": ["cessation_fonctions"],
+      "mots_cles": ["pension de retraite", "cessation définitive"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 34,
+      "contenu": "Les Agents de l'État peuvent bénéficier de promotions dans les conditions précisées par le régime juridique spécifique qui leur est applicable.",
+      "theme_principal": "promotion",
+      "themes_secondaires": ["carriere"],
+      "mots_cles": ["promotion", "carrière"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 35,
+      "contenu": "Le droit syndical est garanti aux Agents de l'État. Ils peuvent librement créer des associations ou syndicats professionnels, y adhérer et y exercer des mandats. Toutefois, les Agents de l'État sont tenus d'exercer ces droits dans le respect des lois et règlements en vigueur et des sujétions propres à certains corps ou certaines fonctions.",
+      "theme_principal": "droit_syndical",
+      "themes_secondaires": ["liberte_association"],
+      "mots_cles": ["droit syndical", "associations", "syndicats", "mandats"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 36,
+      "contenu": "Les organisations syndicales peuvent ester en justice. Elles peuvent agir devant les juridictions compétentes contre les actes réglementaires concernant les statuts des fonctionnaires.",
+      "theme_principal": "syndicats_justice",
+      "themes_secondaires": ["ester_justice"],
+      "mots_cles": ["ester en justice", "juridictions", "actes réglementaires"],
+      "entites_concernees": ["organisations syndicales"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 37,
+      "contenu": "Les organisations syndicales des Agents de l'État ont qualité pour participer au niveau national à des négociations relatives à l'évolution des rémunérations et du pouvoir d'achat des Agents de l'Etat avec les représentants du Gouvernement, les représentants des employeurs.",
+      "theme_principal": "negociations_syndicales",
+      "themes_secondaires": ["remunerations", "pouvoir_achat"],
+      "mots_cles": ["négociations", "rémunérations", "pouvoir d'achat", "Gouvernement"],
+      "entites_concernees": ["organisations syndicales", "Gouvernement"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 38,
+      "contenu": "Les organisations syndicales des Agents de l'Etat ont également qualité pour participer, avec les autorités compétentes, à des négociations relatives : 1. aux conditions et à l'organisation du travail, et au télétravail, 2. au déroulement des carrières et à la promotion professionnelle, 3. a la formation professionnelle et continue, 4. à l'action sociale et à la promotion sociale complémentaire, 5. à l'hygiène, à la sécurité et à la santé du travail, 6. à l'insertion professionnelle des personnes handicapées, 7. à l'égalité professionnelle entre les hommes et les femmes.",
+      "theme_principal": "negociations_syndicales",
+      "themes_secondaires": ["conditions_travail", "carriere", "formation", "sante_securite", "egalite"],
+      "mots_cles": ["négociations", "conditions de travail", "télétravail", "carrière", "formation", "hygiène", "sécurité", "santé", "handicap", "égalité"],
+      "entites_concernees": ["organisations syndicales", "autorités compétentes"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 39,
+      "contenu": "Tout Agent de l'État admis à faire valoir ses droits à la retraite perd d'office le droit d'appartenir à une organisation syndicale des Agents de l'État.",
+      "theme_principal": "syndicat_retraite",
+      "themes_secondaires": ["perte_droits"],
+      "mots_cles": ["retraite", "syndicat", "perte droit"],
+      "entites_concernees": ["agents retraités"],
+      "type_disposition": "restriction"
+    },
+    {
+      "numero": 40,
+      "contenu": "Les Agents sont libres de leurs opinions politiques, philosophiques et religieuses et aucune mention faisant état de ces opinions ne doit figurer dans leur dossier individuel. Toutefois, l'expression de ces opinions doit se faire en dehors du service et avec la réserve appropriée aux fonctions exercées.",
+      "theme_principal": "liberte_opinion",
+      "themes_secondaires": ["neutralite", "reserve"],
+      "mots_cles": ["liberté d'opinion", "politique", "philosophique", "religieuse", "dossier individuel", "réserve"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 41,
+      "contenu": "Le droit de grève est reconnu aux agents de l'Etat qui l'exercent dans le cadre défini par les textes législatifs et règlementaires en vigueur en la matière. Les jours non travaillés pour fait de grève de l'agent, ne sont pas rémunérés. En cas de grève, la continuité du service doit être assurée par un service minimum, conformément aux textes réglementaires en vigueur en la matière. A cet effet, l'autorité peut réquisitionner des Agents de l'État.",
+      "theme_principal": "droit_greve",
+      "themes_secondaires": ["remuneration", "service_minimum", "requisition"],
+      "mots_cles": ["droit de grève", "jours non rémunérés", "service minimum", "réquisition"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 42,
+      "contenu": "Les Agents de l'État ont droit à une réquisition de transport suite à leur affectation dans une localité hors de la zone habituelle de service.",
+      "theme_principal": "requisition_transport",
+      "themes_secondaires": ["affectation"],
+      "mots_cles": ["réquisition de transport", "affectation", "zone de service"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 43,
+      "contenu": "Indépendamment de la protection qui leur est due en vertu de la loi pénale et des lois spéciales contre les menaces, outrages, injures ou diffamations dont ils peuvent faire l'objet, l'Administration est tenue de protéger les agents de l'État contre les actes préjudiciables dont ils sont victimes en raison ou à l'occasion de l'exercice de leurs fonctions. L'Administration est tenue de réparer, le cas échéant, les dommages qui en résultent, selon des modalités précisées par décret.",
+      "theme_principal": "protection_fonctionnelle",
+      "themes_secondaires": ["menaces", "outrages", "reparation"],
+      "mots_cles": ["protection", "menaces", "outrages", "injures", "diffamation", "réparation", "dommages"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "garantie"
+    },
+    {
+      "numero": 44,
+      "contenu": "Lorsque l'Agent de l'État est condamné pour faute professionnelle dans l'exercice ou à l'occasion de l'exercice de ses fonctions, la responsabilité civile de l'Administration se substitue de plein droit à la sienne.",
+      "theme_principal": "responsabilite_civile",
+      "themes_secondaires": ["faute_professionnelle", "substitution"],
+      "mots_cles": ["responsabilité civile", "faute professionnelle", "substitution", "Administration"],
+      "entites_concernees": ["agents de l'État", "Administration"],
+      "type_disposition": "garantie"
+    },
+    {
+      "numero": 45,
+      "contenu": "Tout Agent de l'Etat qui commet une faute personnelle à l'occasion de l'exercice de ses fonctions engage sa propre responsabilité.",
+      "theme_principal": "responsabilite_personnelle",
+      "themes_secondaires": ["faute_personnelle"],
+      "mots_cles": ["faute personnelle", "responsabilité personnelle"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 46,
+      "contenu": "L'Administration a l'obligation d'ouvrir pour tout agent de l'Etat un dossier individuel qui contient toutes les pièces relatives à sa situation administrative et professionnelle. Ces documents doivent être enregistrés et classés sans discontinuité. L'Agent de l'Etat jouit du droit d'accès à son dossier individuel dans les conditions définies par la Loi.",
+      "theme_principal": "dossier_individuel",
+      "themes_secondaires": ["acces_dossier"],
+      "mots_cles": ["dossier individuel", "situation administrative", "accès", "documents"],
+      "entites_concernees": ["agents de l'État", "Administration"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 47,
+      "contenu": "Tout Agent de l'Etat qui s'estime lésé dans ses intérêts professionnels, dispose, en plus des recours administratifs, du droit de recours juridictionnel dans les conditions fixées par la Loi.",
+      "theme_principal": "recours",
+      "themes_secondaires": ["recours_administratif", "recours_juridictionnel"],
+      "mots_cles": ["recours", "administratif", "juridictionnel", "intérêts professionnels"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 48,
+      "contenu": "Indépendamment des obligations et droits résultant des dispositions spécifiques qui leur sont applicables ou de l'emploi qu'ils peuvent être appelés à exercer, les Agents de l'Etat sont et demeurent soumis aux obligations générales prévues par le présent titre et bénéficient des droits et garanties qui y sont énoncés.",
+      "theme_principal": "obligations_generales",
+      "themes_secondaires": ["droits_garanties"],
+      "mots_cles": ["obligations générales", "droits", "garanties"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "principe"
+    },
+    {
+      "numero": 49,
+      "contenu": "Sans préjudice des obligations découlant des dispositions spécifiques qui leur sont applicables, les agents de l'Etat ont pour obligation de servir avec loyauté, probité et patriotisme, de défendre les intérêts de la collectivité nationale, de l'État et des administrations et institutions au sein desquelles ils sont employés. Ils doivent en toutes circonstances respecter et faire respecter l'autorité de l'État.",
+      "theme_principal": "devoir_loyaute",
+      "themes_secondaires": ["probite", "patriotisme"],
+      "mots_cles": ["loyauté", "probité", "patriotisme", "intérêts nationaux", "autorité de l'État"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 50,
+      "contenu": "Les agents de l'État sont tenus de consacrer l'intégralité de leur activité professionnelle à l'exercice de leur emploi, d'être présents à leur service pendant les heures légales de travail et d'accomplir par eux-mêmes les tâches qui leur sont confiées.",
+      "theme_principal": "obligation_service",
+      "themes_secondaires": ["presence", "activite_exclusive"],
+      "mots_cles": ["activité professionnelle", "présence", "heures légales", "tâches"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 51,
+      "contenu": "Les agents de l'État ne peuvent exercer, à titre professionnel, une activité privée lucrative de quelque nature que ce soit ni avoir par eux-mêmes ou par personnes interposées, sous quelque dénomination que ce soit, des intérêts dans une entreprise dont ils ont ou avaient la gestion ou le contrôle.",
+      "theme_principal": "interdiction_cumul",
+      "themes_secondaires": ["activite_privee", "conflit_interets"],
+      "mots_cles": ["activité privée lucrative", "interdiction", "cumul", "conflit d'intérêts"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "interdiction"
+    },
+    {
+      "numero": 52,
+      "contenu": "Toutefois, certains Agents de l'Etat peuvent être autorisés, dans des conditions définies par décret, à effectuer des travaux d'expertises ou des consultations se rapportant à leur compétence, à donner des enseignements se rattachant à leur compétence, à réaliser des productions intellectuelles, littéraires ou artistiques.",
+      "theme_principal": "derogation_cumul",
+      "themes_secondaires": ["expertise", "enseignement", "production_intellectuelle"],
+      "mots_cles": ["expertise", "consultation", "enseignement", "production intellectuelle", "littéraire", "artistique", "autorisation"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "dérogation",
+      "articles_lies": [51]
+    },
+    {
+      "numero": 53,
+      "contenu": "Tout Agent de l'Etat, quel que soit son rang dans la hiérarchie est responsable des tâches qui lui sont confiées. A ce titre, il est tenu d'obéir aux instructions de son supérieur hiérarchique dans le cadre du service, en rapport aux lois et règlements en vigueur. Toutefois, il a le devoir de refuser d'exécuter un ordre manifestement illégal et de nature à compromettre gravement l'intérêt public, sauf réquisition de l'autorité compétente établie dans les formes et procédures légales.",
+      "theme_principal": "obeissance_hierarchique",
+      "themes_secondaires": ["responsabilite", "ordre_illegal"],
+      "mots_cles": ["obéissance", "supérieur hiérarchique", "responsabilité", "ordre illégal", "intérêt public"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 54,
+      "contenu": "Le chef hiérarchique n'est dégagé d'aucune des responsabilités qui lui incombent du fait de l'action de ceux qui sont placés sous ses ordres, son autorité ou son contrôle.",
+      "theme_principal": "responsabilite_hierarchique",
+      "themes_secondaires": ["chef_hierarchique"],
+      "mots_cles": ["chef hiérarchique", "responsabilité", "subordonnés"],
+      "entites_concernees": ["chefs hiérarchiques"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 55,
+      "contenu": "Tout Agent de l'État doit avoir l'esprit de bonne collaboration afin d'éviter de nuire à ses collègues.",
+      "theme_principal": "collaboration",
+      "themes_secondaires": ["collegialite"],
+      "mots_cles": ["collaboration", "collègues", "esprit d'équipe"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 56,
+      "contenu": "Les agents de l'État ne doivent, en aucun cas, solliciter ou accepter des tiers, directement ou par personne interposée, des dons, gratifications ou autres avantages quelconques pour les services qu'ils sont tenus de rendre dans le cadre de leurs fonctions ou en relation avec celles-ci.",
+      "theme_principal": "interdiction_corruption",
+      "themes_secondaires": ["probite", "integrite"],
+      "mots_cles": ["dons", "gratifications", "corruption", "interdiction", "intégrité"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "interdiction"
+    },
+    {
+      "numero": 57,
+      "contenu": "Les agents de l'Etat doivent, en toutes circonstances, assurer leurs fonctions en toute impartialité et se garder de toutes attitudes discriminatoires à l'égard des usagers du service public ainsi que de tous comportements de nature à faire douter de la neutralité du service public.",
+      "theme_principal": "impartialite",
+      "themes_secondaires": ["neutralite", "non_discrimination"],
+      "mots_cles": ["impartialité", "discrimination", "neutralité", "usagers", "service public"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 58,
+      "contenu": "Les agents de l'Etat sont au service des usagers. Ils doivent traiter les dossiers avec diligence et faire preuve de courtoisie dans leurs relations avec les usagers. Ils sont tenus de fournir toutes informations sollicitées que les usagers sont en droit d'obtenir. Les informations qui peuvent et/ou doivent être communiquées aux usagers sont précisées, pour chaque administration par l'autorité hiérarchique compétente.",
+      "theme_principal": "service_usagers",
+      "themes_secondaires": ["diligence", "courtoisie", "information"],
+      "mots_cles": ["usagers", "diligence", "courtoisie", "information", "service public"],
+      "entites_concernees": ["agents de l'État", "usagers"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 59,
+      "contenu": "Les agents de l'Etat doivent, dans le service et en dehors du service, éviter tous comportements susceptibles de compromettre la dignité ou l'honneur de leurs fonctions ou de l'Administration Publique.",
+      "theme_principal": "dignite",
+      "themes_secondaires": ["honneur", "comportement"],
+      "mots_cles": ["dignité", "honneur", "comportement", "Administration"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 60,
+      "contenu": "Sans préjudice des règles instituées par la législation pénale en matière de secret professionnel, tout agent de l'Etat est lié par l'obligation de discrétion professionnelle pour tout ce qui concerne les faits, informations ou documents dont il a connaissance dans l'exercice ou à l'occasion de l'exercice de ses fonctions et dont la divulgation est de nature à nuire aux intérêts des usagers du service public ou aux intérêts des administrations et institutions publiques.",
+      "theme_principal": "discretion_professionnelle",
+      "themes_secondaires": ["secret_professionnel", "confidentialite"],
+      "mots_cles": ["discrétion professionnelle", "secret professionnel", "confidentialité", "divulgation"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 61,
+      "contenu": "L'obligation de discrétion professionnelle ne s'applique pas à la dénonciation suivant les prescriptions de la législation pénale, des crimes ou délits dont l'Agent de l'État a eu connaissance dans les conditions visées à l'article 60 de la présente Loi, ni aux témoignages qu'il peut être amené à faire à la demande d'une autorité judiciaire ou administrative compétente.",
+      "theme_principal": "exception_discretion",
+      "themes_secondaires": ["denonciation", "temoignage"],
+      "mots_cles": ["dénonciation", "crimes", "délits", "témoignage", "autorité judiciaire"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "exception",
+      "articles_lies": [60]
+    },
+    {
+      "numero": 62,
+      "contenu": "Tout détournement de pièces ou toute communication de document de service à des tiers contraires aux règlements est interdit. En dehors des cas expressément prévus par la réglementation en vigueur, l'Agent de l'État ne peut être délié de cette obligation de discrétion ou relevé de l'interdiction édictée par l'alinéa précédent qu'avec l'autorisation du ministre dont relève l'Agent de l'État.",
+      "theme_principal": "interdiction_detournement",
+      "themes_secondaires": ["documents", "autorisation"],
+      "mots_cles": ["détournement", "pièces", "documents", "communication interdite", "autorisation ministérielle"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "interdiction"
+    },
+    {
+      "numero": 63,
+      "contenu": "Tout Agent de l'Etat est tenu de payer sa part de cotisation pour la pension de retraite et la protection sociale. Les modalités de paiement de la cotisation de l'Agent de l'État sont fixées par voie réglementaire.",
+      "theme_principal": "cotisations",
+      "themes_secondaires": ["retraite", "protection_sociale"],
+      "mots_cles": ["cotisation", "pension de retraite", "protection sociale"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 64,
+      "contenu": "L'Agent de l'État est tenu de servir partout où l'Administration l'exige, et d'obéir aux règles de mobilité instituées au sein de l'Administration publique. Un arrêté du Ministre de la Fonction publique, détermine les conditions et modalités de mobilité des fonctionnaires aux différents postes et emplois de l'Administration publique.",
+      "theme_principal": "mobilite",
+      "themes_secondaires": ["affectation"],
+      "mots_cles": ["mobilité", "affectation", "servir partout"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "obligation"
+    },
+    {
+      "numero": 65,
+      "contenu": "Tout manquement de l'Agent de l'État aux obligations ci-dessus constitue une faute professionnelle passible d'une sanction disciplinaire sans préjudice des sanctions pénales éventuellement encourues.",
+      "theme_principal": "faute_professionnelle",
+      "themes_secondaires": ["sanction"],
+      "mots_cles": ["manquement", "faute professionnelle", "sanction disciplinaire", "sanction pénale"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "sanction"
+    },
+    {
+      "numero": 66,
+      "contenu": "Les autorités investies du pouvoir disciplinaire, l'étendue de leurs compétences respectives ainsi que la liste des sanctions et les règles de procédures disciplinaires applicables aux agents de l'État sont précisées par les dispositions spécifiques qui les régissent.",
+      "theme_principal": "pouvoir_disciplinaire",
+      "themes_secondaires": ["competences", "procedures"],
+      "mots_cles": ["pouvoir disciplinaire", "compétences", "sanctions", "procédures"],
+      "entites_concernees": ["autorités disciplinaires"],
+      "type_disposition": "renvoi"
+    },
+    {
+      "numero": 67,
+      "contenu": "Il est interdit à tout Agent de l'État de se livrer à des activités contraires aux lois et règlements ou portant atteinte à la sécurité du pays, à l'intégrité de la République et de ses institutions ou d'appartenir à des mouvements ou organisations qui se livrent à de telles activités.",
+      "theme_principal": "interdiction_activites_subversives",
+      "themes_secondaires": ["securite_nationale", "integrite"],
+      "mots_cles": ["activités interdites", "sécurité", "intégrité", "République", "mouvements subversifs"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "interdiction"
+    },
+    {
+      "numero": 68,
+      "contenu": "Tout manquement de l'Agent de l'État à ses devoirs dans le cadre de l'exercice de ses fonctions, l'expose à une sanction disciplinaire, sans préjudice, le cas échéant, de l'application des peines prévues par le Code Pénal.",
+      "theme_principal": "sanction_manquement",
+      "themes_secondaires": ["discipline", "code_penal"],
+      "mots_cles": ["manquement", "devoirs", "sanction disciplinaire", "Code Pénal"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "sanction"
+    },
+    {
+      "numero": 69,
+      "contenu": "Les sanctions disciplinaires sont dans l'ordre de gravité : Sanctions du premier degré : l'avertissement ; le blâme. Sanctions du deuxième degré : l'abaissement d'échelon d'un ou de plusieurs échelons ; la rétrogradation ; la radiation du tableau d'avancement. Sanctions du troisième degré : la révocation ; le licenciement.",
+      "theme_principal": "echelle_sanctions",
+      "themes_secondaires": ["avertissement", "blame", "retrogradation", "revocation", "licenciement"],
+      "mots_cles": ["sanctions disciplinaires", "avertissement", "blâme", "abaissement d'échelon", "rétrogradation", "radiation", "révocation", "licenciement"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "classification",
+      "valeurs_structurees": {
+        "sanctions_premier_degre": ["avertissement", "blâme"],
+        "sanctions_deuxieme_degre": ["abaissement d'échelon", "rétrogradation", "radiation du tableau d'avancement"],
+        "sanctions_troisieme_degre": ["révocation", "licenciement"]
+      }
+    },
+    {
+      "numero": 70,
+      "contenu": "Les sanctions disciplinaires du premier degré sont prononcées sur proposition du chef de service, par : le Ministre de tutelle, ou le chef de la hiérarchie supérieure ; le gouverneur ; le préfet ; ou le sous-préfet dont relève l'Agent de l'État.",
+      "theme_principal": "autorite_sanctions_1er_degre",
+      "themes_secondaires": ["competence"],
+      "mots_cles": ["sanctions premier degré", "Ministre", "gouverneur", "préfet", "sous-préfet"],
+      "entites_concernees": ["autorités disciplinaires"],
+      "type_disposition": "compétence"
+    },
+    {
+      "numero": 71,
+      "contenu": "Les sanctions disciplinaires des 2ème et 3ème degrés, sont prononcées sur proposition motivée du conseil de discipline par Arrêté du Ministre en charge de la Fonction Publique, exception faite de la révocation de l'Agent nommé par décret à de hautes fonctions de l'État. Dans ce cas, après avoir pris connaissance des propositions motivées issues des délibérations du conseil de discipline, le Ministre en charge de la Fonction Publique, soumet le projet de décret de révocation à la signature du Président de la République.",
+      "theme_principal": "autorite_sanctions_2e_3e_degre",
+      "themes_secondaires": ["conseil_discipline", "president_republique"],
+      "mots_cles": ["sanctions 2ème degré", "sanctions 3ème degré", "conseil de discipline", "Ministre", "Président de la République", "décret"],
+      "entites_concernees": ["conseil de discipline", "Ministre de la Fonction Publique", "Président de la République"],
+      "type_disposition": "compétence"
+    },
+    {
+      "numero": 72,
+      "contenu": "L'Agent de l'État à l'encontre duquel une procédure disciplinaire est engagée, ne peut faire l'objet d'une sanction disciplinaire sans qu'il n'ait été, au préalable, informé des griefs retenus contre lui et qu'il n'ait été mis en mesure de présenter sa défense devant un conseil de discipline.",
+      "theme_principal": "droits_defense",
+      "themes_secondaires": ["procedure_disciplinaire", "griefs"],
+      "mots_cles": ["droits de la défense", "griefs", "conseil de discipline", "procédure contradictoire"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "garantie"
+    },
+    {
+      "numero": 73,
+      "contenu": "La suspension est une situation transitoire de l'Agent dans laquelle il lui est interdit d'exercer provisoirement ses fonctions, en raison d'une faute grave qu'il aurait commise en violation de ses obligations professionnelles ou en infraction aux dispositions du Code pénal.",
+      "theme_principal": "suspension",
+      "themes_secondaires": ["definition", "faute_grave"],
+      "mots_cles": ["suspension", "situation transitoire", "faute grave", "interdiction d'exercer"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "définition"
+    },
+    {
+      "numero": 74,
+      "contenu": "La suspension est une mesure conservatoire à caractère essentiellement provisoire dont la durée maximale est de trois mois. Elle est prononcée par décision de l'autorité dont relève l'Agent de l'État et confirmée par un acte du Ministre en charge de la Fonction Publique.",
+      "theme_principal": "suspension",
+      "themes_secondaires": ["duree", "autorite"],
+      "mots_cles": ["suspension", "mesure conservatoire", "3 mois", "Ministre"],
+      "entites_concernees": ["agents de l'État", "Ministre de la Fonction Publique"],
+      "type_disposition": "modalité",
+      "valeurs_numeriques": {
+        "duree_max_suspension_mois": 3
+      }
+    },
+    {
+      "numero": 75,
+      "contenu": "La suspension est obligatoirement suivie de l'engagement de la procédure disciplinaire. Elle est prononcée pour la durée des procédures disciplinaires engagées à l'encontre de l'Agent de l'État jusqu'à la décision définitive. Toutefois, si la décision définitive n'intervient pas dans les trois mois, l'Agent de l'Etat est automatiquement rétabli dans tous ses droits et fonctions, sans préjudice de l'action disciplinaire.",
+      "theme_principal": "suspension",
+      "themes_secondaires": ["procedure_disciplinaire", "retablissement"],
+      "mots_cles": ["suspension", "procédure disciplinaire", "3 mois", "rétablissement automatique"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "procédure",
+      "valeurs_numeriques": {
+        "delai_decision_mois": 3
+      }
+    },
+    {
+      "numero": 76,
+      "contenu": "La suspension est prononcée d'office lorsque l'Agent de l'État fait l'objet de poursuite pénale ou se trouve en détention. En cas de détention préventive de l'Agent de l'État, la suspension est d'office prorogée de façon à englober la période de détention. En cas de condamnation, les conséquences administratives de la décision judiciaire sont déterminées par décret pour les agents nommés à travers cet acte, et par arrêté du Ministre de la Fonction publique, pour les agents nommés par arrêté ou décision.",
+      "theme_principal": "suspension_office",
+      "themes_secondaires": ["poursuite_penale", "detention"],
+      "mots_cles": ["suspension d'office", "poursuite pénale", "détention", "condamnation"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "procédure"
+    },
+    {
+      "numero": 77,
+      "contenu": "L'Agent de l'État suspendu perçoit la totalité de sa rémunération et la totalité des allocations familiales jusqu'à la conclusion de la procédure disciplinaire.",
+      "theme_principal": "remuneration_suspension",
+      "themes_secondaires": ["allocations_familiales"],
+      "mots_cles": ["suspension", "rémunération maintenue", "allocations familiales"],
+      "entites_concernees": ["agents de l'État suspendus"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 78,
+      "contenu": "La révocation est une mesure disciplinaire qui entraine : soit la perte de la fonction exercée ; soit la perte de la qualité d'Agent de l'Etat, ce qui provoque la radiation des effectifs de la fonction publique.",
+      "theme_principal": "revocation",
+      "themes_secondaires": ["definition", "consequences"],
+      "mots_cles": ["révocation", "perte de fonction", "perte qualité", "radiation"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "définition"
+    },
+    {
+      "numero": 79,
+      "contenu": "Le pouvoir de révocation entrainant perte de la fonction exercée, appartient à l'autorité ayant le pouvoir de nomination.",
+      "theme_principal": "revocation",
+      "themes_secondaires": ["competence", "perte_fonction"],
+      "mots_cles": ["révocation", "perte de fonction", "autorité de nomination"],
+      "entites_concernees": ["autorité de nomination"],
+      "type_disposition": "compétence"
+    },
+    {
+      "numero": 80,
+      "contenu": "Le pouvoir de révocation entrainant la perte de la qualité d'Agent de l'Etat et la radiation des effectifs de la Fonction Publique, appartient au Ministre en charge de la Fonction Publique, sauf pour l'Agent de l'Etat nommé par Décret.",
+      "theme_principal": "revocation",
+      "themes_secondaires": ["competence", "radiation"],
+      "mots_cles": ["révocation", "perte qualité", "radiation", "Ministre", "décret"],
+      "entites_concernees": ["Ministre de la Fonction Publique"],
+      "type_disposition": "compétence"
+    },
+    {
+      "numero": 81,
+      "contenu": "La révocation ne peut être prononcée qu'au terme de la procédure disciplinaire prévue par la présente Loi.",
+      "theme_principal": "revocation",
+      "themes_secondaires": ["procedure"],
+      "mots_cles": ["révocation", "procédure disciplinaire"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "garantie"
+    },
+    {
+      "numero": 82,
+      "contenu": "En cas d'abus de l'autorité, l'Agent de l'État peut recourir au Conseil de discipline de son Institution et au Tribunal Administratif.",
+      "theme_principal": "recours_abus",
+      "themes_secondaires": ["conseil_discipline", "tribunal_administratif"],
+      "mots_cles": ["abus d'autorité", "recours", "conseil de discipline", "tribunal administratif"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 83,
+      "contenu": "Le licenciement est une mesure d'exclusion définitive de l'Agent de l'État des effectifs de la Fonction Publique.",
+      "theme_principal": "licenciement",
+      "themes_secondaires": ["definition"],
+      "mots_cles": ["licenciement", "exclusion définitive", "radiation"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "définition"
+    },
+    {
+      "numero": 84,
+      "contenu": "Le Licenciement peut être prononcé : soit pour insuffisance professionnelle notoire ; soit pour incapacité physique ou mentale ; soit pour malversation, ou détournement de deniers publics établis ; soit d'office, pour : l'Agent de l'État qui a abandonné son poste d'affectation sans justification pendant plus de trois mois ; l'Agent de l'Etat qui, bénéficiaire d'un détachement, d'une mise en disponibilité ou d'une position hors cadre n'a pas sollicité le renouvellement, ou n'a pas demandé sa réintégration dans les délais prévus ; l'Agent de l'Etat qui vient de perdre la nationalité guinéenne ou ses droits civils et civiques ; l'Agent de l'Etat qui refuse de rejoindre son poste d'affectation après mise en demeure.",
+      "theme_principal": "motifs_licenciement",
+      "themes_secondaires": ["insuffisance", "incapacite", "malversation", "abandon_poste"],
+      "mots_cles": ["licenciement", "insuffisance professionnelle", "incapacité", "malversation", "détournement", "abandon de poste", "perte nationalité"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "condition",
+      "valeurs_numeriques": {
+        "delai_abandon_poste_mois": 3
+      }
+    },
+    {
+      "numero": 85,
+      "contenu": "L'Agent de l'Etat licencié d'office n'a droit à aucune rémunération. Toutefois, il conserve ses droits à pension dans les conditions fixées par la réglementation en vigueur. Toutefois les Agents licenciés pour motif d'incapacité physique ou mental bénéficient de conditions particulières déterminées par un texte règlementaire.",
+      "theme_principal": "consequences_licenciement",
+      "themes_secondaires": ["remuneration", "pension"],
+      "mots_cles": ["licenciement d'office", "pas de rémunération", "droits à pension", "incapacité"],
+      "entites_concernees": ["agents licenciés"],
+      "type_disposition": "conséquence"
+    },
+    {
+      "numero": 86,
+      "contenu": "Le licenciement est prononcé par arrêté du Ministre en charge de la Fonction Publique.",
+      "theme_principal": "autorite_licenciement",
+      "themes_secondaires": ["competence"],
+      "mots_cles": ["licenciement", "arrêté", "Ministre"],
+      "entites_concernees": ["Ministre de la Fonction Publique"],
+      "type_disposition": "compétence"
+    },
+    {
+      "numero": 87,
+      "contenu": "Les conditions et les effets du licenciement sont précisés par décret.",
+      "theme_principal": "renvoi_reglementaire",
+      "themes_secondaires": ["licenciement"],
+      "mots_cles": ["licenciement", "décret", "conditions", "effets"],
+      "entites_concernees": [],
+      "type_disposition": "renvoi"
+    },
+    {
+      "numero": 88,
+      "contenu": "La procédure disciplinaire, les conséquences administratives et financières des sanctions sont déterminées par voie réglementaire.",
+      "theme_principal": "renvoi_reglementaire",
+      "themes_secondaires": ["procedure_disciplinaire", "sanctions"],
+      "mots_cles": ["procédure disciplinaire", "conséquences", "voie réglementaire"],
+      "entites_concernees": [],
+      "type_disposition": "renvoi"
+    },
+    {
+      "numero": 89,
+      "contenu": "L'Agent de l'Etat qui, dans l'exercice de ses fonctions au cours de l'année, s'est particulièrement distingué par son dévouement, son engagement professionnel et sa contribution exceptionnelle à l'accroissement du rendement du service, peut recevoir l'une des récompenses suivantes : la lettre d'encouragement ; la lettre de félicitations ; le témoignage officiel de satisfaction ; la mention honorable ; le diplôme d'excellence ; l'honorariat.",
+      "theme_principal": "recompenses",
+      "themes_secondaires": ["merite", "distinction"],
+      "mots_cles": ["récompenses", "dévouement", "mérite", "lettre d'encouragement", "félicitations", "témoignage", "mention honorable", "diplôme d'excellence", "honorariat"],
+      "entites_concernees": ["agents de l'État méritants"],
+      "type_disposition": "droit",
+      "valeurs_structurees": {
+        "types_recompenses": ["lettre d'encouragement", "lettre de félicitations", "témoignage officiel de satisfaction", "mention honorable", "diplôme d'excellence", "honorariat"]
+      }
+    },
+    {
+      "numero": 90,
+      "contenu": "La lettre d'encouragement et la lettre de félicitations, sont adressées aux fonctionnaires méritants, sur proposition du supérieur hiérarchique directe, par : le préfet ; le gouverneur ; le Ministre de tutelle, et donnent droit à un avancement de quatre échelons.",
+      "theme_principal": "lettre_encouragement_felicitations",
+      "themes_secondaires": ["avancement"],
+      "mots_cles": ["lettre d'encouragement", "félicitations", "préfet", "gouverneur", "Ministre", "4 échelons"],
+      "entites_concernees": ["fonctionnaires méritants"],
+      "type_disposition": "droit",
+      "valeurs_numeriques": {
+        "avancement_echelons": 4
+      }
+    },
+    {
+      "numero": 91,
+      "contenu": "Le témoignage officiel de satisfaction est décerné par le Ministre en charge de la Fonction Publique, sur proposition motivée du Ministre de tutelle ou de la hiérarchie supérieure, et donne droit à un avancement de six (6) échelons.",
+      "theme_principal": "temoignage_satisfaction",
+      "themes_secondaires": ["avancement"],
+      "mots_cles": ["témoignage officiel de satisfaction", "Ministre", "6 échelons"],
+      "entites_concernees": ["fonctionnaires méritants"],
+      "type_disposition": "droit",
+      "valeurs_numeriques": {
+        "avancement_echelons": 6
+      }
+    },
+    {
+      "numero": 92,
+      "contenu": "Le diplôme d'excellence est décerné par arrêté du Ministre en charge de la Fonction Publique, assorti d'un rapport circonstancié du Ministre de tutelle ou de la hiérarchie supérieure. Il est solennellement remis au lauréat par le Ministre en charge de la Fonction Publique. Il donne droit à un avancement de huit échelons.",
+      "theme_principal": "diplome_excellence",
+      "themes_secondaires": ["avancement"],
+      "mots_cles": ["diplôme d'excellence", "arrêté", "8 échelons", "remise solennelle"],
+      "entites_concernees": ["fonctionnaires méritants"],
+      "type_disposition": "droit",
+      "valeurs_numeriques": {
+        "avancement_echelons": 8
+      }
+    },
+    {
+      "numero": 93,
+      "contenu": "L'honorariat est conféré par décret du Président de la République, sur proposition du Ministre en charge de la Fonction Publique, assorti d'un rapport circonstancié. Il donne droit à un avancement de dix échelons.",
+      "theme_principal": "honorariat",
+      "themes_secondaires": ["avancement"],
+      "mots_cles": ["honorariat", "décret", "Président de la République", "10 échelons"],
+      "entites_concernees": ["fonctionnaires méritants"],
+      "type_disposition": "droit",
+      "valeurs_numeriques": {
+        "avancement_echelons": 10
+      }
+    },
+    {
+      "numero": 94,
+      "contenu": "L'honorariat est conféré Honoris Causa a l'Agent de l'État admis à faire valoir ses droits à la retraite et ayant obtenu au cours de sa carrière, soit une mention honorable soit un diplôme d'excellence.",
+      "theme_principal": "honorariat_honoris_causa",
+      "themes_secondaires": ["retraite"],
+      "mots_cles": ["honorariat", "honoris causa", "retraite", "mention honorable", "diplôme d'excellence"],
+      "entites_concernees": ["agents retraités"],
+      "type_disposition": "droit"
+    },
+    {
+      "numero": 95,
+      "contenu": "Un décret fixe les avantages liés au Titre d'Honoris Causa. Les avantages et gratifications liés aux autres récompenses mentionnées à l'article 89, sont déterminés par arrêté du Ministre de la Fonction publique. D'autres récompenses peuvent être, en tant que de besoin, créées et organisées par des textes réglementaires.",
+      "theme_principal": "avantages_recompenses",
+      "themes_secondaires": ["renvoi_reglementaire"],
+      "mots_cles": ["avantages", "honoris causa", "gratifications", "décret", "arrêté"],
+      "entites_concernees": [],
+      "type_disposition": "renvoi",
+      "articles_lies": [89]
+    },
+    {
+      "numero": 96,
+      "contenu": "Les bonifications d'échelons, prévues aux articles ci-dessus sont constatées par arrêté du Ministre en charge de la Fonction Publique, sans préjudice de l'avancement normal de l'Agent bénéficiaire.",
+      "theme_principal": "bonifications",
+      "themes_secondaires": ["avancement"],
+      "mots_cles": ["bonifications", "échelons", "arrêté", "avancement normal"],
+      "entites_concernees": ["agents récompensés"],
+      "type_disposition": "modalité"
+    },
+    {
+      "numero": 97,
+      "contenu": "L'acte accordant une récompense est notifié au bénéficiaire, versé dans son dossier individuel et, en tant que de besoin, rendu public à la diligence de l'administration.",
+      "theme_principal": "notification_recompense",
+      "themes_secondaires": ["dossier_individuel", "publicite"],
+      "mots_cles": ["notification", "dossier individuel", "publication"],
+      "entites_concernees": ["agents récompensés"],
+      "type_disposition": "procédure"
+    },
+    {
+      "numero": 98,
+      "contenu": "Un décret détermine les modalités d'attributions et les signes distinctifs des récompenses.",
+      "theme_principal": "renvoi_reglementaire",
+      "themes_secondaires": ["recompenses"],
+      "mots_cles": ["décret", "modalités", "signes distinctifs", "récompenses"],
+      "entites_concernees": [],
+      "type_disposition": "renvoi"
+    },
+    {
+      "numero": 99,
+      "contenu": "La rémunération est le traitement mensuel de l'Agent en activité perçu après services accomplis. Peuvent s'ajouter au traitement du fonctionnaire, les allocations familiales, les primes et indemnités, les frais ou traitement de travaux supplémentaires effectifs et des avantages en nature.",
+      "theme_principal": "remuneration",
+      "themes_secondaires": ["definition", "composantes"],
+      "mots_cles": ["rémunération", "traitement mensuel", "allocations familiales", "primes", "indemnités", "avantages en nature"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "définition"
+    },
+    {
+      "numero": 100,
+      "contenu": "Le traitement soumis à retenue pour pensions de retraite et de prévoyance sociale est défini par l'indice affecté au grade et à l'échelon de la hiérarchie ou de la catégorie des Agents de l'Etat, multiplié par la valeur du point d'indice.",
+      "theme_principal": "calcul_traitement",
+      "themes_secondaires": ["indice", "point_indice"],
+      "mots_cles": ["traitement", "indice", "grade", "échelon", "point d'indice", "pension", "prévoyance"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "modalité"
+    },
+    {
+      "numero": 101,
+      "contenu": "Des décrets pris en conseil des ministres sur proposition conjointe des Ministres en charge du Budget et de la Fonction Publique fixent : le classement indiciaire des emplois de fonctionnaires et la valeur du point indiciaire ; le taux et les conditions d'attribution des allocations familiales ; la nature, le taux et les conditions d'attribution des indemnités visées à l'article ci-dessus ; la détermination des avantages en nature et les conditions de leur attribution.",
+      "theme_principal": "renvoi_reglementaire",
+      "themes_secondaires": ["remuneration", "indice", "allocations", "indemnites"],
+      "mots_cles": ["décret", "conseil des ministres", "classement indiciaire", "point indiciaire", "allocations familiales", "indemnités", "avantages en nature"],
+      "entites_concernees": ["Ministre du Budget", "Ministre de la Fonction Publique"],
+      "type_disposition": "renvoi"
+    },
+    {
+      "numero": 116,
+      "contenu": "Tout Agent de l'Etat ayant atteint la limite d'âge de sa hiérarchie ou de sa catégorie, est d'office admis à faire valoir ses droits à la retraite. L'âge limite de mise à la retraite est fixé : à 60 ans pour les hiérarchies B1, B2, C et pour les contractuels permanents ; à 65 ans pour les hiérarchies A1, A2 et A3 ; à 70 ans, pour les professeurs de rang magistral de l'Enseignement Supérieur.",
+      "theme_principal": "age_retraite",
+      "themes_secondaires": ["limite_age", "hierarchies"],
+      "mots_cles": ["retraite", "limite d'âge", "60 ans", "65 ans", "70 ans", "hiérarchies", "professeurs"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "condition",
+      "valeurs_numeriques": {
+        "age_retraite_B1_B2_C_contractuels": 60,
+        "age_retraite_A1_A2_A3": 65,
+        "age_retraite_professeurs_magistraux": 70
+      }
+    },
+    {
+      "numero": 117,
+      "contenu": "Tout Agent de l'Etat ayant accompli quinze ans de service ou plus, a droit à une pension proportionnelle, et peut faire valoir ses droits à la retraite.",
+      "theme_principal": "retraite_anticipee",
+      "themes_secondaires": ["pension_proportionnelle"],
+      "mots_cles": ["15 ans de service", "pension proportionnelle", "retraite anticipée"],
+      "entites_concernees": ["agents de l'État"],
+      "type_disposition": "droit",
+      "valeurs_numeriques": {
+        "duree_service_minimum_ans": 15
+      }
+    },
+    {
+      "numero": 122,
+      "contenu": "Est fonctionnaire au sens de la présente loi, tout Agent nommé et titularisé dans l'un des emplois publics permanents ci-après : emplois de conception, de prestations intellectuelles et techniques de haut niveau, concourant à l'exécution des missions d'orientation, de formulation, de contrôle et de suivi-évaluation des politiques sectorielles de l'État ; emplois d'encadrement de prestations intellectuelles et techniques de niveau moyen, concourant à la mise en œuvre des missions de souveraineté dévolues à l'État ; emplois d'application ou d'exécution concourant à la mise en œuvre des missions de l'État. Ces emplois publics permanents sont décrits dans le répertoire des emplois, mis régulièrement à jour par le Ministère en charge de la Fonction Publique. L'acquisition de la qualité de fonctionnaire est subordonnée à l'accomplissement d'une période d'intégration, stage probatoire d'une année au moins. Ce stage probatoire fait partie intégrante du processus de recrutement.",
+      "theme_principal": "definition_fonctionnaire",
+      "themes_secondaires": ["emplois_permanents", "stage_probatoire"],
+      "mots_cles": ["fonctionnaire", "nomination", "titularisation", "emplois permanents", "stage probatoire", "1 an"],
+      "entites_concernees": ["fonctionnaires"],
+      "type_disposition": "définition",
+      "valeurs_numeriques": {
+        "duree_stage_probatoire_minimum_an": 1
+      }
+    },
+    {
+      "numero": 125,
+      "contenu": "Les fonctionnaires sont classés et répartis suivant leur niveau de recrutement et les compétences requises par les postes en six hiérarchies désignées dans l'ordre décroissant par les lettres A3, A2, A1, B2, B1 et C. Les emplois de chaque hiérarchie sont répartis en douze grades désignés dans l'ordre croissant par les chiffres I, II, III, IV, V, VI, VII, VIII, IX, X, XI, XII ou exceptionnel et ce, conformément à la grille indiciaire en vigueur.",
+      "theme_principal": "classification_fonctionnaires",
+      "themes_secondaires": ["hierarchies", "grades"],
+      "mots_cles": ["hiérarchies", "A3", "A2", "A1", "B2", "B1", "C", "grades", "12 grades", "grille indiciaire"],
+      "entites_concernees": ["fonctionnaires"],
+      "type_disposition": "classification",
+      "valeurs_numeriques": {
+        "nombre_hierarchies": 6,
+        "nombre_grades": 12
+      },
+      "valeurs_structurees": {
+        "hierarchies_ordre_decroissant": ["A3", "A2", "A1", "B2", "B1", "C"],
+        "grades": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "exceptionnel"]
+      }
+    },
+    {
+      "numero": 126,
+      "contenu": "Chaque grade de fonctionnaire comprend 12 échelons.",
+      "theme_principal": "echelons",
+      "themes_secondaires": ["grades"],
+      "mots_cles": ["grade", "12 échelons"],
+      "entites_concernees": ["fonctionnaires"],
+      "type_disposition": "classification",
+      "valeurs_numeriques": {
+        "nombre_echelons_par_grade": 12
+      }
+    },
+    {
+      "numero": 127,
+      "contenu": "Tout fonctionnaire nouvellement recruté effectue d'au moins un stage probatoire d'un an. Le Stage probatoire vise à préparer les fonctionnaires stagiaires à l'accomplissement d'une Carrière administrative. Il est formatif et sélectif.",
+      "theme_principal": "stage_probatoire",
+      "themes_secondaires": ["recrutement", "formation"],
+      "mots_cles": ["stage probatoire", "1 an", "formatif", "sélectif", "carrière"],
+      "entites_concernees": ["fonctionnaires stagiaires"],
+      "type_disposition": "obligation",
+      "valeurs_numeriques": {
+        "duree_stage_an": 1
+      }
+    },
+    {
+      "numero": 144,
+      "contenu": "Tout fonctionnaire est placé au cours de sa carrière dans l'une des positions suivantes : l'activité ; le détachement ; la disponibilité ; le hors cadre.",
+      "theme_principal": "positions_administratives",
+      "themes_secondaires": ["activite", "detachement", "disponibilite", "hors_cadre"],
+      "mots_cles": ["positions administratives", "activité", "détachement", "disponibilité", "hors cadre"],
+      "entites_concernees": ["fonctionnaires"],
+      "type_disposition": "classification",
+      "valeurs_structurees": {
+        "positions": ["activité", "détachement", "disponibilité", "hors cadre"]
+      }
+    },
+    {
+      "numero": 179,
+      "contenu": "L'avancement d'échelon qui se traduit par une augmentation de traitement, a lieu tous les ans pour le fonctionnaire.",
+      "theme_principal": "avancement_echelon",
+      "themes_secondaires": ["traitement"],
+      "mots_cles": ["avancement d'échelon", "augmentation", "annuel"],
+      "entites_concernees": ["fonctionnaires"],
+      "type_disposition": "droit",
+      "valeurs_numeriques": {
+        "frequence_avancement_an": 1
+      }
+    },
+    {
+      "numero": 180,
+      "contenu": "Seuls bénéficient d'un avancement de grade, les fonctionnaires inscrits, en raison de leur mérite à un tableau annuel d'avancement rendu public dans les quinze jours à compter de la date à laquelle il a été arrêté par le ministre ou par la hiérarchie supérieure dont il relève. L'avancement d'un grade à un autre n'est pas subordonné à l'épuisement des échelons du grade précédent. Sont inscrits au tableau d'avancement au grade supérieur, les fonctionnaires ayant accompli quatre (4) années de service au moins dans leurs grades. En cas d'avancement de grade, le fonctionnaire est placé dans le grade supérieur à concordance d'indice ou à l'indice immédiatement supérieur.",
+      "theme_principal": "avancement_grade",
+      "themes_secondaires": ["tableau_avancement", "merite"],
+      "mots_cles": ["avancement de grade", "tableau d'avancement", "mérite", "4 ans", "indice"],
+      "entites_concernees": ["fonctionnaires"],
+      "type_disposition": "droit",
+      "valeurs_numeriques": {
+        "anciennete_requise_avancement_grade_ans": 4,
+        "delai_publication_tableau_jours": 15
+      }
+    },
+    {
+      "numero": 207,
+      "contenu": "L'engagement définitif de l'agent contractuel est obligatoirement précédé d'une période d'essai dont la durée est fixée ainsi qu'il suit : 1ère catégorie 1 mois ; 2ème catégorie 2 mois ; 3ème catégorie 3 mois. Toutefois, la durée de l'essai est réduite à cinq jours lorsque le contrat est conclu pour une durée inférieure ou égale à un mois.",
+      "theme_principal": "periode_essai_contractuels",
+      "themes_secondaires": ["categories"],
+      "mots_cles": ["période d'essai", "contractuels", "1 mois", "2 mois", "3 mois", "5 jours"],
+      "entites_concernees": ["agents contractuels"],
+      "type_disposition": "obligation",
+      "valeurs_numeriques": {
+        "essai_1ere_categorie_mois": 1,
+        "essai_2eme_categorie_mois": 2,
+        "essai_3eme_categorie_mois": 3,
+        "essai_contrat_court_jours": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Fomba - Assistant Fonction Publique Guinée</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Palette Guinéenne Modernisée */
+            --gn-green: #1B8B4B;
+            --gn-green-light: #2AAF5D;
+            --gn-green-dark: #146B3A;
+            --gn-gold: #F4B942;
+            --gn-gold-light: #FFD166;
+            --gn-red: #CE2B37;
+            
+            /* Neutres Modernes */
+            --bg-primary: #0A0F0D;
+            --bg-secondary: #111916;
+            --bg-tertiary: #1A2420;
+            --bg-card: rgba(26, 36, 32, 0.7);
+            --bg-glass: rgba(27, 139, 75, 0.08);
+            
+            /* Texte */
+            --text-primary: #F5F7F6;
+            --text-secondary: #A8B5AF;
+            --text-muted: #6B7D74;
+            
+            /* Bordures & Accents */
+            --border-subtle: rgba(168, 181, 175, 0.12);
+            --border-accent: rgba(27, 139, 75, 0.3);
+            --glow-green: rgba(42, 175, 93, 0.4);
+            
+            /* Espacements - Responsive avec clamp() */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: clamp(12px, 3vw, 16px);
+            --space-lg: clamp(16px, 4vw, 24px);
+            --space-xl: clamp(20px, 5vw, 32px);
+            --space-2xl: clamp(32px, 6vw, 48px);
+            
+            /* Rayons */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --radius-full: 9999px;
+            
+            /* Transitions */
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            
+            /* Safe areas pour mobiles avec encoche */
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-left: env(safe-area-inset-left, 0px);
+            --safe-right: env(safe-area-inset-right, 0px);
+        }
+
+        html {
+            height: 100%;
+            height: -webkit-fill-available;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            height: 100%;
+            height: -webkit-fill-available;
+            overflow: hidden;
+            /* Empêcher le zoom sur double-tap */
+            touch-action: manipulation;
+        }
+
+        /* Layout Principal */
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            height: 100dvh; /* Dynamic viewport height pour mobile */
+            height: -webkit-fill-available;
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            /* Gestion des safe areas */
+            padding-top: var(--safe-top);
+            padding-left: var(--safe-left);
+            padding-right: var(--safe-right);
+        }
+
+        /* Background Décoratif */
+        .bg-decoration {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-gradient-1 {
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, var(--glow-green) 0%, transparent 70%);
+            opacity: 0.3;
+            filter: blur(80px);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-gradient-2 {
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(circle, rgba(244, 185, 66, 0.15) 0%, transparent 70%);
+            opacity: 0.4;
+            filter: blur(60px);
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        .bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(var(--border-subtle) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.3;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 100%);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -20px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* Header */
+        .chat-header {
+            position: relative;
+            z-index: 10;
+            padding: var(--space-md) var(--space-lg);
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border-subtle);
+            backdrop-filter: blur(20px);
+            flex-shrink: 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+        }
+
+        .logo-ring {
+            position: absolute;
+            inset: -2px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--gn-green), var(--gn-gold), var(--gn-green));
+            opacity: 0.8;
+            animation: rotate-gradient 4s linear infinite;
+        }
+
+        @keyframes rotate-gradient {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .logo-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-secondary);
+            border-radius: calc(var(--radius-md) - 2px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--gn-green-light);
+            text-shadow: 0 0 20px var(--glow-green);
+        }
+
+        .header-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .header-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(16px, 4vw, 20px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .header-title .flag {
+            font-size: clamp(14px, 3.5vw, 18px);
+        }
+
+        .header-subtitle {
+            font-size: clamp(10px, 2.5vw, 13px);
+            color: var(--text-muted);
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 10px;
+            background: rgba(42, 175, 93, 0.12);
+            border: 1px solid rgba(42, 175, 93, 0.25);
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--gn-green-light);
+            flex-shrink: 0;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--gn-green-light);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--glow-green);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.9); }
+        }
+
+        /* Zone Messages */
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: var(--space-lg);
+            position: relative;
+            z-index: 1;
+            scroll-behavior: smooth;
+            /* Permettre le scroll fluide sur iOS */
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+        }
+
+        .messages-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            /* Assurer que le welcome screen prend toute la hauteur disponible */
+            min-height: 100%;
+        }
+
+        /* Scrollbar Custom */
+        .chat-messages::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--border-subtle);
+            border-radius: 2px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* Messages */
+        .message {
+            display: flex;
+            gap: var(--space-sm);
+            max-width: 90%;
+            animation: message-in 0.4s var(--ease-out) forwards;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        @keyframes message-in {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+            margin-left: auto;
+        }
+
+        .message.assistant {
+            margin-right: auto;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, var(--gn-gold), var(--gn-gold-light));
+            color: var(--bg-primary);
+        }
+
+        .message.assistant .message-avatar {
+            background: linear-gradient(135deg, var(--gn-green), var(--gn-green-light));
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .message-content {
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-lg);
+            font-size: clamp(13px, 3.5vw, 15px);
+            line-height: 1.6;
+            position: relative;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, var(--gn-green) 0%, var(--gn-green-dark) 100%);
+            color: white;
+            border-bottom-right-radius: var(--space-xs);
+            box-shadow: 
+                0 4px 20px rgba(27, 139, 75, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .message.assistant .message-content {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+            border-bottom-left-radius: var(--space-xs);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Formatage Texte */
+        .message-content p {
+            margin-bottom: 10px;
+        }
+
+        .message-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .message-content strong {
+            font-weight: 600;
+            color: var(--gn-gold-light);
+        }
+
+        .message.user .message-content strong {
+            color: var(--gn-gold-light);
+        }
+
+        .message-content em {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .message-content ul, .message-content ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .message-content li {
+            margin: 6px 0;
+            position: relative;
+        }
+
+        .message-content ul {
+            list-style: none;
+        }
+
+        .message-content ul li::before {
+            content: '';
+            position: absolute;
+            left: -16px;
+            top: 9px;
+            width: 5px;
+            height: 5px;
+            background: var(--gn-green-light);
+            border-radius: 50%;
+        }
+
+        .message.user .message-content ul li::before {
+            background: var(--gn-gold-light);
+        }
+
+        .message-content code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.85em;
+        }
+
+        .message-content blockquote {
+            border-left: 3px solid var(--gn-green-light);
+            padding: 10px 14px;
+            margin: 10px 0;
+            background: rgba(27, 139, 75, 0.08);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-style: italic;
+        }
+
+        /* Article Reference */
+        .article-ref {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(244, 185, 66, 0.15);
+            color: var(--gn-gold-light);
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.85em;
+            border: 1px solid rgba(244, 185, 66, 0.3);
+            transition: all 0.2s var(--ease-out);
+        }
+
+        .article-ref:hover {
+            background: rgba(244, 185, 66, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .message.user .article-ref {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        /* Article References Enhanced */
+        .article-ref-enhanced {
+            position: relative;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(30, 64, 175, 0.05));
+            border: 1.5px solid rgba(37, 99, 235, 0.2);
+            border-left: 4px solid #dc2626;
+            border-radius: 8px;
+            padding: 6px 10px;
+            margin: 2px 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+        }
+
+        .article-ref-enhanced:hover {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(30, 64, 175, 0.08));
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+            transform: translateY(-2px);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .copy-article-btn {
+            width: 16px;
+            height: 16px;
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            margin-left: 4px;
+            transition: all 0.2s ease;
+            opacity: 0.8;
+        }
+
+        .copy-article-btn:hover {
+            background: #991b1b;
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .copy-article-btn:active {
+            background: #10b981;
+            transform: scale(0.95);
+        }
+
+        /* Suggestions */
+        .suggestions {
+            margin-top: var(--space-md);
+            padding-top: var(--space-sm);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .suggestions-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+        }
+
+        .suggestions-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .suggestion-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: 8px 12px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-size: clamp(11px, 3vw, 13px);
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s var(--ease-out);
+            text-align: left;
+        }
+
+        .suggestion-btn:hover,
+        .suggestion-btn:active {
+            background: var(--bg-glass);
+            border-color: var(--border-accent);
+            color: var(--text-primary);
+            transform: translateX(4px);
+        }
+
+        .suggestion-btn::before {
+            content: '→';
+            color: var(--gn-green-light);
+            font-weight: 600;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.2s var(--ease-out);
+        }
+
+        .suggestion-btn:hover::before,
+        .suggestion-btn:active::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ==========================================
+           WELCOME SCREEN - OPTIMISÉ MOBILE
+           ========================================== */
+        .welcome-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            padding: var(--space-lg) var(--space-md);
+            animation: fade-up 0.6s var(--ease-out) forwards;
+            flex: 1;
+            min-height: 0;
+            /* Permettre le scroll si nécessaire sur très petits écrans */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-icon {
+            width: clamp(56px, 15vw, 80px);
+            height: clamp(56px, 15vw, 80px);
+            background: linear-gradient(135deg, var(--gn-green), var(--gn-green-light));
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(24px, 8vw, 36px);
+            margin-bottom: var(--space-md);
+            box-shadow: 
+                0 8px 32px rgba(27, 139, 75, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            animation: icon-glow 3s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes icon-glow {
+            0%, 100% { box-shadow: 0 8px 32px rgba(27, 139, 75, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset; }
+            50% { box-shadow: 0 8px 48px rgba(27, 139, 75, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.15) inset; }
+        }
+
+        .welcome-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(20px, 6vw, 28px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: var(--space-xs);
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gn-green-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            flex-shrink: 0;
+        }
+
+        .welcome-subtitle {
+            font-size: clamp(12px, 3.5vw, 15px);
+            color: var(--text-secondary);
+            max-width: 400px;
+            margin-bottom: var(--space-lg);
+            line-height: 1.5;
+            padding: 0 var(--space-sm);
+            flex-shrink: 0;
+        }
+
+        /* Questions de démarrage - MOBILE FIRST */
+        .starter-questions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            width: 100%;
+            max-width: 480px;
+            padding: 0 var(--space-xs);
+            /* Assurer que les boutons soient toujours visibles */
+            flex-shrink: 0;
+        }
+
+        .starter-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: clamp(12px, 3.5vw, 14px);
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.25s var(--ease-out);
+            text-align: left;
+            backdrop-filter: blur(10px);
+            /* Touch feedback */
+            -webkit-tap-highlight-color: transparent;
+            /* Minimum touch target size */
+            min-height: 48px;
+        }
+
+        .starter-btn:hover,
+        .starter-btn:active {
+            background: var(--bg-glass);
+            border-color: var(--gn-green);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(27, 139, 75, 0.15);
+        }
+
+        /* État actif pour mobile (touch) */
+        .starter-btn:active {
+            transform: scale(0.98);
+        }
+
+        .starter-btn .icon {
+            width: clamp(28px, 8vw, 32px);
+            height: clamp(28px, 8vw, 32px);
+            background: linear-gradient(135deg, var(--gn-green), var(--gn-green-light));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(12px, 3.5vw, 14px);
+            flex-shrink: 0;
+        }
+
+        .starter-btn .text {
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        .starter-btn .arrow {
+            color: var(--text-muted);
+            transition: all 0.2s var(--ease-out);
+            font-size: 14px;
+        }
+
+        .starter-btn:hover .arrow,
+        .starter-btn:active .arrow {
+            color: var(--gn-green-light);
+            transform: translateX(4px);
+        }
+
+        /* Typing Indicator */
+        .typing-indicator {
+            display: flex;
+            gap: var(--space-sm);
+            max-width: 85%;
+            animation: message-in 0.3s var(--ease-out) forwards;
+        }
+
+        .typing-avatar {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--gn-green), var(--gn-green-light));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .typing-dots {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            border-bottom-left-radius: var(--space-xs);
+        }
+
+        .typing-dots span {
+            width: 7px;
+            height: 7px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            animation: typing-bounce 1.4s ease-in-out infinite;
+        }
+
+        .typing-dots span:nth-child(1) { animation-delay: 0s; }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing-bounce {
+            0%, 60%, 100% { transform: translateY(0); background: var(--text-muted); }
+            30% { transform: translateY(-6px); background: var(--gn-green-light); }
+        }
+
+        /* ==========================================
+           ZONE INPUT - OPTIMISÉ MOBILE
+           ========================================== */
+        .chat-input-area {
+            position: relative;
+            z-index: 10;
+            padding: var(--space-sm) var(--space-md);
+            padding-bottom: calc(var(--space-sm) + var(--safe-bottom));
+            background: linear-gradient(0deg, var(--bg-secondary) 0%, transparent 100%);
+            border-top: 1px solid var(--border-subtle);
+            flex-shrink: 0;
+        }
+
+        .input-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: flex-end;
+            gap: var(--space-sm);
+            padding: var(--space-xs);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            transition: all 0.2s var(--ease-out);
+        }
+
+        .input-container:focus-within {
+            border-color: var(--gn-green);
+            box-shadow: 0 0 0 3px rgba(27, 139, 75, 0.15);
+        }
+
+        #chat-input {
+            flex: 1;
+            padding: var(--space-sm) var(--space-sm);
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 16px; /* Minimum 16px pour éviter le zoom sur iOS */
+            font-family: inherit;
+            color: var(--text-primary);
+            resize: none;
+            max-height: 100px;
+            min-height: 40px;
+            line-height: 1.4;
+            /* Empêcher le zoom sur focus iOS */
+            -webkit-text-size-adjust: 100%;
+        }
+
+        #chat-input::placeholder {
+            color: var(--text-muted);
+            font-size: clamp(12px, 3.5vw, 15px);
+        }
+
+        #send-btn {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--gn-green), var(--gn-green-light));
+            border: none;
+            border-radius: var(--radius-md);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s var(--ease-spring);
+            flex-shrink: 0;
+            /* Touch feedback */
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #send-btn:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(27, 139, 75, 0.4);
+        }
+
+        #send-btn:active:not(:disabled) {
+            transform: scale(0.95);
+        }
+
+        #send-btn:disabled {
+            background: var(--bg-tertiary);
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        #send-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Error Message */
+        .error-message {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(206, 43, 55, 0.1);
+            border: 1px solid rgba(206, 43, 55, 0.3);
+            border-radius: var(--radius-md);
+            color: #FF6B6B;
+            font-size: clamp(12px, 3.5vw, 14px);
+        }
+
+        .error-message::before {
+            content: '⚠️';
+        }
+
+        /* ==========================================
+           RESPONSIVE BREAKPOINTS
+           ========================================== */
+        
+        /* Très petits écrans (iPhone SE, etc.) */
+        @media (max-width: 374px) {
+            .chat-header {
+                padding: var(--space-sm) var(--space-sm);
+            }
+            
+            .logo-container {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .logo-inner {
+                font-size: 14px;
+            }
+            
+            .header-subtitle {
+                display: none;
+            }
+            
+            .status-badge span:not(.status-dot) {
+                display: none;
+            }
+            
+            .status-badge {
+                padding: 5px;
+                width: 24px;
+                height: 24px;
+                justify-content: center;
+            }
+            
+            .welcome-screen {
+                padding: var(--space-sm);
+            }
+            
+            .welcome-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                margin-bottom: var(--space-sm);
+            }
+            
+            .welcome-title {
+                font-size: 18px;
+            }
+            
+            .welcome-subtitle {
+                font-size: 11px;
+                margin-bottom: var(--space-md);
+            }
+            
+            .starter-btn {
+                padding: var(--space-xs) var(--space-sm);
+                min-height: 44px;
+            }
+            
+            .starter-btn .icon {
+                width: 24px;
+                height: 24px;
+                font-size: 11px;
+            }
+            
+            .starter-btn .text {
+                font-size: 11px;
+            }
+            
+            .chat-input-area {
+                padding: var(--space-xs) var(--space-sm);
+            }
+            
+            #send-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Petits mobiles (iPhone 6/7/8, etc.) */
+        @media (min-width: 375px) and (max-width: 413px) {
+            .header-subtitle {
+                max-width: 150px;
+            }
+            
+            .status-badge span:not(.status-dot) {
+                display: none;
+            }
+            
+            .status-badge {
+                padding: 5px;
+                width: 24px;
+                height: 24px;
+                justify-content: center;
+            }
+        }
+
+        /* Mobiles moyens (iPhone Plus, etc.) */
+        @media (min-width: 414px) and (max-width: 639px) {
+            .header-subtitle {
+                max-width: 180px;
+            }
+        }
+
+        /* Tablettes portrait et petits laptops */
+        @media (min-width: 640px) and (max-width: 1023px) {
+            .chat-header {
+                padding: var(--space-md) var(--space-xl);
+            }
+            
+            .chat-messages {
+                padding: var(--space-xl);
+            }
+            
+            .message {
+                max-width: 80%;
+            }
+            
+            .welcome-screen {
+                justify-content: center;
+            }
+        }
+
+        /* Desktop et grands écrans */
+        @media (min-width: 1024px) {
+            .chat-header {
+                padding: var(--space-lg) var(--space-xl);
+            }
+            
+            .logo-container {
+                width: 52px;
+                height: 52px;
+            }
+            
+            .logo-inner {
+                font-size: 22px;
+            }
+            
+            .chat-messages {
+                padding: var(--space-xl);
+            }
+            
+            .message {
+                max-width: 75%;
+            }
+            
+            .message-avatar {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            
+            .welcome-screen {
+                justify-content: center;
+                padding: var(--space-2xl);
+            }
+            
+            #send-btn {
+                width: 48px;
+                height: 48px;
+            }
+            
+            #send-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        /* Mode paysage sur mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .welcome-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                margin-bottom: var(--space-sm);
+            }
+            
+            .welcome-title {
+                font-size: 18px;
+            }
+            
+            .welcome-subtitle {
+                font-size: 12px;
+                margin-bottom: var(--space-sm);
+            }
+            
+            .starter-questions {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: var(--space-xs);
+            }
+            
+            .starter-btn {
+                flex: 1 1 45%;
+                max-width: 48%;
+            }
+            
+            .chat-header {
+                padding: var(--space-xs) var(--space-md);
+            }
+            
+            .logo-container {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        /* Préférence de mouvement réduit */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Mode sombre forcé (certains navigateurs) */
+        @media (prefers-color-scheme: dark) {
+            /* Déjà en mode sombre, pas de changement */
+        }
+
+        /* Animations d'entrée des éléments du welcome */
+        .welcome-screen .welcome-icon { animation-delay: 0.1s; }
+        .welcome-screen .welcome-title { animation-delay: 0.2s; }
+        .welcome-screen .welcome-subtitle { animation-delay: 0.3s; }
+        .starter-btn:nth-child(1) { animation: fade-up 0.5s var(--ease-out) 0.4s forwards; opacity: 0; }
+        .starter-btn:nth-child(2) { animation: fade-up 0.5s var(--ease-out) 0.5s forwards; opacity: 0; }
+        .starter-btn:nth-child(3) { animation: fade-up 0.5s var(--ease-out) 0.6s forwards; opacity: 0; }
+        .starter-btn:nth-child(4) { animation: fade-up 0.5s var(--ease-out) 0.7s forwards; opacity: 0; }
+
+        /* Focus visible pour accessibilité */
+        button:focus-visible, a:focus-visible, textarea:focus-visible {
+            outline: 2px solid var(--gn-green-light);
+            outline-offset: 2px;
+        }
+
+        /* Hack pour les navigateurs qui ne supportent pas dvh */
+        @supports not (height: 100dvh) {
+            .app-container {
+                height: calc(100vh - env(safe-area-inset-bottom, 0px));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Background décoratif -->
+        <div class="bg-decoration">
+            <div class="bg-gradient-1"></div>
+            <div class="bg-gradient-2"></div>
+            <div class="bg-grid"></div>
+        </div>
+
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-ring"></div>
+                    <div class="logo-inner">F</div>
+                </div>
+                <div class="header-info">
+                    <h1 class="header-title">
+                        Fomba <span class="flag">🇬🇳</span>
+                    </h1>
+                    <p class="header-subtitle">Assistant IA • Statut des Agents de l'État</p>
+                </div>
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>En ligne</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Messages -->
+        <main class="chat-messages" id="chat-messages">
+            <div class="messages-wrapper" id="messages-wrapper">
+                <!-- Welcome Screen -->
+                <div class="welcome-screen" id="welcome">
+                    <div class="welcome-icon">⚖️</div>
+                    <h2 class="welcome-title">Bienvenue sur Fomba</h2>
+                    <p class="welcome-subtitle">
+                        Votre assistant intelligent pour comprendre le Statut Général des Agents de l'État de la République de Guinée.
+                    </p>
+                    <div class="starter-questions" id="starter-questions">
+                        <!-- Rempli dynamiquement -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Input -->
+        <footer class="chat-input-area">
+            <div class="input-wrapper">
+                <div class="input-container">
+                    <textarea 
+                        id="chat-input" 
+                        placeholder="Posez votre question..."
+                        rows="1"
+                        aria-label="Message"
+                    ></textarea>
+                    <button id="send-btn" title="Envoyer" aria-label="Envoyer le message">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ========== CONFIGURATION ==========
+        const CONFIG = {
+            API_URL: detectApiUrl(),
+            SESSION_ID: getSessionId(),
+            TIMEOUT: 30000, // 30 secondes
+            DEMO_MODE: false // Activé automatiquement si l'API est inaccessible
+        };
+
+        function detectApiUrl() {
+            if (window.CHATBOT_API_URL) return window.CHATBOT_API_URL;
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('api')) return urlParams.get('api');
+            const { protocol, host } = window.location;
+            return `${protocol}//${host}/api/v1`;
+        }
+
+        function getSessionId() {
+            try {
+                let id = localStorage.getItem('fomba_session');
+                if (!id) {
+                    id = 'session_' + crypto.randomUUID();
+                    localStorage.setItem('fomba_session', id);
+                }
+                return id;
+            } catch {
+                return 'session_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+            }
+        }
+
+        // ========== MODE DÉMO (quand l'API n'est pas disponible) ==========
+        const DEMO_RESPONSES = {
+            "default": {
+                answer: "Je suis Fomba, votre assistant pour le Statut Général des Agents de l'État de Guinée (Loi L/2019/0027/AN). En mode démonstration, je peux vous donner des informations de base. Pour des réponses complètes, veuillez vous assurer que l'API est connectée.",
+                suggested_questions: [
+                    { question: "Qu'est-ce qu'un agent de l'État ?" },
+                    { question: "Quel est l'âge de la retraite ?" }
+                ]
+            },
+            "agent": {
+                answer: "**Selon l'Article 1 de la Loi L/2019/0027/AN :**\n\nUn agent de l'État est toute personne qui, nommée dans un emploi permanent, a été titularisée dans un grade de la hiérarchie des administrations de l'État.\n\nLes agents de l'État comprennent :\n- Les fonctionnaires civils\n- Les agents contractuels\n- Les agents décisionnaires\n\n*Mode démo - Connectez l'API pour des réponses complètes.*",
+                suggested_questions: [
+                    { question: "Quelles sont les catégories de fonctionnaires ?" },
+                    { question: "Comment devient-on fonctionnaire ?" }
+                ]
+            },
+            "retraite": {
+                answer: "**Selon les Articles 94 à 98 de la Loi L/2019/0027/AN :**\n\nL'âge de la retraite varie selon la catégorie :\n\n- **Catégorie A** : 65 ans\n- **Catégorie B** : 60 ans  \n- **Catégorie C** : 58 ans\n- **Catégorie D** : 55 ans\n\nDes prolongations peuvent être accordées dans certains cas spécifiques.\n\n*Mode démo - Connectez l'API pour des réponses complètes.*",
+                suggested_questions: [
+                    { question: "Comment calculer la pension de retraite ?" },
+                    { question: "Qu'est-ce que la retraite anticipée ?" }
+                ]
+            },
+            "avancement": {
+                answer: "**Selon les Articles 48 à 55 de la Loi L/2019/0027/AN :**\n\nL'avancement des fonctionnaires comprend :\n\n1. **L'avancement d'échelon** : automatique, basé sur l'ancienneté (tous les 2 ans)\n\n2. **L'avancement de grade** : au choix ou par concours professionnel\n\n3. **L'avancement de classe** : selon les performances et l'ancienneté\n\n*Mode démo - Connectez l'API pour des réponses complètes.*",
+                suggested_questions: [
+                    { question: "Quels sont les critères d'avancement ?" },
+                    { question: "Comment fonctionne la notation ?" }
+                ]
+            },
+            "droits": {
+                answer: "**Selon les Articles 15 à 25 de la Loi L/2019/0027/AN :**\n\n**Droits des agents :**\n- Droit à la rémunération\n- Droit aux congés\n- Droit à la protection sociale\n- Liberté d'opinion\n- Droit syndical\n\n**Obligations :**\n- Obligation de servir\n- Devoir de réserve\n- Secret professionnel\n- Obligation de probité\n\n*Mode démo - Connectez l'API pour des réponses complètes.*",
+                suggested_questions: [
+                    { question: "Quels sont les types de congés ?" },
+                    { question: "Qu'est-ce que le devoir de réserve ?" }
+                ]
+            }
+        };
+
+        function getDemoResponse(question) {
+            const q = question.toLowerCase();
+            
+            if (q.includes('agent') && (q.includes("qu'est") || q.includes('definition') || q.includes('c\'est quoi'))) {
+                return DEMO_RESPONSES.agent;
+            }
+            if (q.includes('retraite') || q.includes('âge') || q.includes('pension')) {
+                return DEMO_RESPONSES.retraite;
+            }
+            if (q.includes('avancement') || q.includes('promotion') || q.includes('échelon') || q.includes('grade')) {
+                return DEMO_RESPONSES.avancement;
+            }
+            if (q.includes('droit') || q.includes('obligation') || q.includes('devoir')) {
+                return DEMO_RESPONSES.droits;
+            }
+            
+            return DEMO_RESPONSES.default;
+        }
+
+        // ========== CACHE ==========
+        const cache = {
+            responses: new Map(),
+            maxAge: 5 * 60 * 1000,
+            get(key) {
+                const item = this.responses.get(key);
+                if (item && Date.now() - item.ts < this.maxAge) return item.data;
+                return null;
+            },
+            set(key, data) {
+                if (this.responses.size > 50) {
+                    const firstKey = this.responses.keys().next().value;
+                    this.responses.delete(firstKey);
+                }
+                this.responses.set(key, { data, ts: Date.now() });
+            }
+        };
+
+        // ========== DOM ==========
+        const $ = (sel) => document.querySelector(sel);
+        const messagesWrapper = $('#messages-wrapper');
+        const messagesContainer = $('#chat-messages');
+        const chatInput = $('#chat-input');
+        const sendBtn = $('#send-btn');
+        const welcomeScreen = $('#welcome');
+        const starterQuestions = $('#starter-questions');
+
+        let isProcessing = false;
+
+        // ========== INITIALISATION ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStarterQuestions();
+            setupEventListeners();
+            testConnection();
+            handleMobileViewport();
+        });
+
+        // ========== GESTION VIEWPORT MOBILE ==========
+        function handleMobileViewport() {
+            // Gérer le redimensionnement du viewport quand le clavier apparaît sur mobile
+            const setViewportHeight = () => {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            };
+            
+            setViewportHeight();
+            window.addEventListener('resize', setViewportHeight);
+            window.addEventListener('orientationchange', () => {
+                setTimeout(setViewportHeight, 100);
+            });
+            
+            // Éviter le zoom sur double-tap sur iOS
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', (e) => {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    e.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+        }
+
+        function setupEventListeners() {
+            sendBtn.addEventListener('click', sendMessage);
+            
+            chatInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            chatInput.addEventListener('input', () => {
+                chatInput.style.height = 'auto';
+                chatInput.style.height = Math.min(chatInput.scrollHeight, 100) + 'px';
+            });
+            
+            // Gérer le focus du champ de saisie sur mobile
+            chatInput.addEventListener('focus', () => {
+                // Scroll vers le bas quand le clavier apparaît
+                setTimeout(() => {
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                }, 300);
+            });
+        }
+
+        async function testConnection() {
+            try {
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), 5000);
+                
+                const res = await fetch(CONFIG.API_URL.replace('/api/v1', '') + '/health', {
+                    signal: controller.signal
+                });
+                clearTimeout(timeout);
+                
+                if (res.ok) {
+                    console.log('✅ API connectée');
+                    CONFIG.DEMO_MODE = false;
+                } else {
+                    throw new Error('API non disponible');
+                }
+            } catch (e) {
+                console.warn('⚠️ API non accessible - Mode DÉMO activé');
+                CONFIG.DEMO_MODE = true;
+                showDemoNotice();
+            }
+        }
+        
+        function showDemoNotice() {
+            const notice = document.createElement('div');
+            notice.id = 'demo-notice';
+            notice.innerHTML = `
+                <span>🔄 Mode démonstration</span>
+                <small>API non connectée</small>
+            `;
+            notice.style.cssText = `
+                position: fixed;
+                top: 70px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: linear-gradient(135deg, #F4B942, #FFD166);
+                color: #0A0F0D;
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 600;
+                z-index: 100;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2px;
+                box-shadow: 0 4px 12px rgba(244, 185, 66, 0.4);
+                animation: slideDown 0.5s ease-out;
+            `;
+            document.body.appendChild(notice);
+            
+            // Ajouter l'animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideDown {
+                    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // ========== QUESTIONS DE DÉMARRAGE ==========
+        async function loadStarterQuestions() {
+            const defaultQuestions = [
+                { icon: '👤', text: "Qu'est-ce qu'un agent de l'État ?" },
+                { icon: '🎂', text: "Quel est l'âge de la retraite ?" },
+                { icon: '📈', text: "Comment fonctionne l'avancement ?" },
+                { icon: '⚖️', text: "Quels sont les droits et obligations ?" }
+            ];
+
+            try {
+                const res = await fetch(`${CONFIG.API_URL}/suggestions/starter`, {
+                    method: 'GET',
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (res.ok) {
+                    const questions = await res.json();
+                    renderStarterQuestions(questions.slice(0, 4).map((q, i) => ({
+                        icon: defaultQuestions[i]?.icon || '💡',
+                        text: q.question.replace(/\\'/g, "'")
+                    })));
+                    return;
+                }
+            } catch (e) {
+                console.warn('Utilisation des questions par défaut');
+            }
+            
+            renderStarterQuestions(defaultQuestions);
+        }
+
+        function renderStarterQuestions(questions) {
+            starterQuestions.innerHTML = questions.map(q => `
+                <button class="starter-btn" data-question="${escapeAttr(q.text)}">
+                    <span class="icon">${q.icon}</span>
+                    <span class="text">${escapeHtml(q.text)}</span>
+                    <span class="arrow">→</span>
+                </button>
+            `).join('');
+        }
+
+        function askQuestion(question) {
+            chatInput.value = question;
+            sendMessage();
+        }
+
+        // ========== ENVOI DE MESSAGE ==========
+        async function sendMessage() {
+            const question = chatInput.value.trim();
+            if (!question || isProcessing) return;
+
+            // Masquer l'écran de bienvenue
+            if (welcomeScreen) {
+                welcomeScreen.style.display = 'none';
+            }
+
+            // Vérifier le cache
+            const cached = cache.get(question);
+            if (cached) {
+                addUserMessage(question);
+                chatInput.value = '';
+                chatInput.style.height = 'auto';
+                setTimeout(() => addAssistantMessage(cached), 200);
+                return;
+            }
+
+            addUserMessage(question);
+            chatInput.value = '';
+            chatInput.style.height = 'auto';
+
+            const typingId = showTyping();
+            isProcessing = true;
+            sendBtn.disabled = true;
+
+            // Mode démo - réponses simulées
+            if (CONFIG.DEMO_MODE) {
+                await simulateDelay(800, 1500);
+                removeTyping(typingId);
+                const demoData = getDemoResponse(question);
+                cache.set(question, demoData);
+                addAssistantMessage(demoData);
+                isProcessing = false;
+                sendBtn.disabled = false;
+                chatInput.focus();
+                return;
+            }
+
+            try {
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), CONFIG.TIMEOUT);
+
+                const res = await fetch(`${CONFIG.API_URL}/ask`, {
+                    method: 'POST',
+                    signal: controller.signal,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        question,
+                        session_id: CONFIG.SESSION_ID,
+                        include_suggestions: true
+                    })
+                });
+
+                clearTimeout(timeout);
+
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+                const data = await res.json();
+                removeTyping(typingId);
+                cache.set(question, data);
+                addAssistantMessage(data);
+
+            } catch (error) {
+                removeTyping(typingId);
+                
+                // Si l'API échoue, basculer en mode démo
+                if (error.name === 'AbortError' || error.message.includes('fetch') || error.message.includes('NetworkError')) {
+                    console.warn('⚠️ Basculement en mode DÉMO');
+                    CONFIG.DEMO_MODE = true;
+                    if (!document.getElementById('demo-notice')) {
+                        showDemoNotice();
+                    }
+                    const demoData = getDemoResponse(question);
+                    cache.set(question, demoData);
+                    addAssistantMessage(demoData);
+                } else {
+                    addErrorMessage(`Erreur: ${error.message}. Veuillez réessayer.`);
+                }
+            } finally {
+                isProcessing = false;
+                sendBtn.disabled = false;
+                chatInput.focus();
+            }
+        }
+        
+        // Simuler un délai pour le mode démo
+        function simulateDelay(min, max) {
+            const delay = Math.random() * (max - min) + min;
+            return new Promise(resolve => setTimeout(resolve, delay));
+        }
+
+        // ========== AFFICHAGE DES MESSAGES ==========
+        function addUserMessage(content) {
+            const html = `
+                <div class="message user">
+                    <div class="message-avatar">Vous</div>
+                    <div class="message-content">
+                        ${formatText(content)}
+                    </div>
+                </div>
+            `;
+            messagesWrapper.insertAdjacentHTML('beforeend', html);
+            scrollToBottom();
+        }
+
+        function addAssistantMessage(data) {
+            let html = `
+                <div class="message assistant">
+                    <div class="message-avatar">F</div>
+                    <div class="message-content">
+                        ${data.answer.length > 800 ? formatTextEnhanced(data.answer, true) : formatText(data.answer)}
+            `;
+
+            if (data.suggested_questions?.length) {
+                html += `
+                    <div class="suggestions">
+                        <div class="suggestions-label">Questions connexes</div>
+                        <div class="suggestions-list">
+                            ${data.suggested_questions.map(s => `
+                                <button class="suggestion-btn" data-question="${escapeAttr(s.question)}">
+                                    ${escapeHtml(s.question.replace(/\\'/g, "'"))}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            html += '</div></div>';
+            messagesWrapper.insertAdjacentHTML('beforeend', html);
+            scrollToBottom();
+        }
+
+        function addErrorMessage(message) {
+            const html = `
+                <div class="message assistant">
+                    <div class="message-avatar">F</div>
+                    <div class="error-message">${escapeHtml(message)}</div>
+                </div>
+            `;
+            messagesWrapper.insertAdjacentHTML('beforeend', html);
+            scrollToBottom();
+        }
+
+        function showTyping() {
+            const id = 'typing-' + Date.now();
+            const html = `
+                <div class="typing-indicator" id="${id}">
+                    <div class="typing-avatar">F</div>
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            `;
+            messagesWrapper.insertAdjacentHTML('beforeend', html);
+            scrollToBottom();
+            return id;
+        }
+
+        function removeTyping(id) {
+            document.getElementById(id)?.remove();
+        }
+
+        function scrollToBottom() {
+            requestAnimationFrame(() => {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            });
+        }
+
+        // ========== FORMATAGE ==========
+        function formatText(text) {
+            if (!text) return '';
+            
+            return text
+                .replace(/\\'/g, "'")
+                .replace(/\\"/g, '"')
+                .replace(/\\n/g, '\n')
+                .trim()
+                .split('\n')
+                .filter(line => line.trim())
+                .map(line => {
+                    line = line.trim();
+                    
+                    // Headers
+                    if (line.startsWith('###')) return `<h4>${line.slice(3).trim()}</h4>`;
+                    if (line.startsWith('##')) return `<h3>${line.slice(2).trim()}</h3>`;
+                    if (line.startsWith('#')) return `<h2>${line.slice(1).trim()}</h2>`;
+                    
+                    // Listes
+                    if (/^\d+\./.test(line)) {
+                        return `<li>${formatInline(line.replace(/^\d+\.\s*/, ''))}</li>`;
+                    }
+                    if (/^[-*•]/.test(line)) {
+                        return `<li>${formatInline(line.replace(/^[-*•]\s*/, ''))}</li>`;
+                    }
+                    
+                    return `<p>${formatInline(line)}</p>`;
+                })
+                .join('')
+                .replace(/(<li>.*?<\/li>)+/g, match => `<ul>${match}</ul>`)
+                .replace(/<\/ul><ul>/g, '');
+        }
+
+        function formatInline(text) {
+            return text
+                .replace(/\b(Article|Art\.?)\s+(\d+[a-z]?)/gi, '<span class="article-ref">$1 $2</span>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`([^`]+)`/g, '<code>$1</code>');
+        }
+
+        function escapeHtml(text) {
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+            return text?.replace(/[&<>"']/g, m => map[m]) || '';
+        }
+
+        function escapeAttr(text) {
+            return escapeHtml(text).replace(/"/g, "&quot;");
+        }
+
+        // ========== OPTIMISATIONS DE PERFORMANCE ==========
+        
+        // Cache des réponses formatées
+        const formatCache = new Map();
+        const CACHE_DURATION = 5 * 60 * 1000;
+        
+        // Version optimisée de formatText() avec cache
+        const originalFormatText = formatText;
+        formatText = function(text) {
+            if (!text) return '';
+            
+            if (formatCache.has(text)) {
+                return formatCache.get(text);
+            }
+            
+            const result = originalFormatText(text);
+            
+            if (text.length > 100) {
+                formatCache.set(text, result);
+                setTimeout(() => {
+                    formatCache.delete(text);
+                }, CACHE_DURATION);
+            }
+            
+            return result;
+        };
+        
+        // Version enrichie pour réponses longues
+        function formatTextEnhanced(text, enableUX = true) {
+            if (!text) return '';
+            
+            let formatted = formatText(text);
+            
+            if (enableUX && text.length > 800) {
+                formatted = formatted.replace(
+                    /<span class="article-ref">([^<]+)<\/span>/g,
+                    '<span class="article-ref article-ref-enhanced" data-article="$1">$1 <button class="copy-article-btn" data-article="$1" title="Copier l\'article">📋</button></span>'
+                );
+            }
+            
+            return formatted;
+        }
+        
+        function copyArticleText(articleRef) {
+            const text = `${articleRef} - Statut Général des Agents de l'État (L0027)`;
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopySuccess();
+                });
+            } else {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showCopySuccess();
+            }
+        }
+        
+        function showCopySuccess() {
+            const feedback = document.createElement('div');
+            feedback.textContent = '📋 Article copié !';
+            feedback.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--gn-green);
+                color: white;
+                padding: 8px 16px;
+                border-radius: 8px;
+                z-index: 10000;
+                font-size: 14px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            `;
+            document.body.appendChild(feedback);
+            
+            setTimeout(() => {
+                document.body.removeChild(feedback);
+            }, 2000);
+        }
+
+        // ========== EVENT DELEGATION ==========
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.starter-btn, .suggestion-btn')) {
+                e.preventDefault();
+                const question = e.target.getAttribute('data-question');
+                if (question) {
+                    askQuestion(question);
+                }
+                return;
+            }
+            
+            if (e.target.matches('.copy-article-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const articleRef = e.target.getAttribute('data-article');
+                if (articleRef) {
+                    copyArticleText(articleRef);
+                }
+                return;
+            }
+            
+            const starterBtn = e.target.closest('.starter-btn, .suggestion-btn');
+            if (starterBtn) {
+                e.preventDefault();
+                const question = starterBtn.getAttribute('data-question');
+                if (question) {
+                    askQuestion(question);
+                }
+                return;
+            }
+            
+            const copyBtn = e.target.closest('.copy-article-btn');
+            if (copyBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                const articleRef = copyBtn.getAttribute('data-article');
+                if (articleRef) {
+                    copyArticleText(articleRef);
+                }
+                return;
+            }
+        });
+
+        // ========== API EXTERNE ==========
+        window.Fomba = {
+            ask: askQuestion,
+            setApiUrl: (url) => { CONFIG.API_URL = url; }
+        };
+    </script>
+</body>
+</html>

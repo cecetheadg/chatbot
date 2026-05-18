@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Chatbot Embed - Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #1e40af;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .info-box h2 {
+            color: #1e40af;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .info-box p {
+            color: #1e293b;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .test-section h3 {
+            color: #1e40af;
+            margin-bottom: 15px;
+        }
+
+        .test-section ul {
+            list-style-position: inside;
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        .config-info {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        .status {
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+
+        .test-button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+
+        .test-button:hover {
+            background: #2563eb;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Chatbot L0027 - Development Test Page</h1>
+
+        <div class="info-box">
+            <h2>Environment: Development</h2>
+            <p><strong>API URL:</strong> http://localhost:8000/api/v1</p>
+            <p><strong>Widget URL:</strong> http://localhost:8000/widget</p>
+            <p><strong>Status:</strong> <span id="status" class="status">Checking...</span></p>
+        </div>
+
+        <div class="test-section">
+            <h3>Testing Instructions</h3>
+            <ul>
+                <li>Ensure backend is running: <code>./start-dev.sh</code></li>
+                <li>Check that chatbot button appears in bottom-right corner</li>
+                <li>Click the button to open chat interface</li>
+                <li>Send a test message to verify API connectivity</li>
+                <li>Check browser console (F12) for any errors</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h3>Quick Tests</h3>
+            <button class="test-button" onclick="testHealth()">Test Health Endpoint</button>
+            <button class="test-button" onclick="testAPI()">Test API Endpoint</button>
+            <button class="test-button" onclick="checkWidget()">Check Widget</button>
+        </div>
+
+        <div class="config-info">
+            <strong>Embed Configuration:</strong><br>
+            data-api-url="http://localhost:8000/api/v1"<br>
+            data-position="bottom-right"<br>
+            data-theme="blue"
+        </div>
+
+        <div class="test-section">
+            <h3>Expected Behavior</h3>
+            <ul>
+                <li>✅ Chatbot button visible in bottom-right corner</li>
+                <li>✅ Button click opens chat interface</li>
+                <li>✅ Messages can be sent and received</li>
+                <li>✅ Loading indicators work correctly</li>
+                <li>✅ Responsive design works on mobile</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Scroll down to see more content and test the chatbot button visibility</p>
+            <p style="margin-top: 20px; font-size: 0.9rem;">
+                The chatbot widget should be visible in the bottom-right corner of this page.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Dummy content to enable scrolling -->
+    <div style="height: 1000px; padding: 20px; text-align: center; color: white;">
+        <p>Scroll to test chatbot button visibility</p>
+    </div>
+
+    <!-- Chatbot Embed Script - Development -->
+    <script src="http://localhost:8000/embed.js" 
+            data-api-url="http://localhost:8000/api/v1"
+            data-position="bottom-right"
+            data-theme="blue">
+    </script>
+
+    <!-- Test Scripts -->
+    <script>
+        const API_URL = 'http://localhost:8000';
+        const API_ENDPOINT = 'http://localhost:8000/api/v1';
+
+        async function testHealth() {
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                const data = await response.json();
+                alert('✅ Health Check OK!\n\n' + JSON.stringify(data, null, 2));
+            } catch (error) {
+                alert('❌ Health Check Failed!\n\n' + error.message);
+            }
+        }
+
+        async function testAPI() {
+            try {
+                const response = await fetch(`${API_ENDPOINT}/ask`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        question: 'Qu\'est-ce que le statut des agents de l\'État ?',
+                        conversation_id: null
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                alert('✅ API Test OK!\n\nResponse: ' + JSON.stringify(data, null, 2));
+            } catch (error) {
+                alert('❌ API Test Failed!\n\n' + error.message + '\n\nEnsure backend is running: ./start-dev.sh');
+            }
+        }
+
+        function checkWidget() {
+            const widget = document.querySelector('#chatbot-l0027-container');
+            if (widget) {
+                alert('✅ Widget is loaded!\n\nCheck bottom-right corner for the chat button.');
+            } else {
+                alert('❌ Widget not found!\n\nCheck:\n1. Backend is running\n2. embed.js is accessible\n3. Browser console for errors');
+            }
+        }
+
+        // Check status on load
+        window.addEventListener('load', async () => {
+            const statusEl = document.getElementById('status');
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                if (response.ok) {
+                    statusEl.textContent = '✅ Connected';
+                    statusEl.className = 'status success';
+                } else {
+                    throw new Error('Health check failed');
+                }
+            } catch (error) {
+                statusEl.textContent = '❌ Not Connected';
+                statusEl.className = 'status error';
+                console.error('Backend not reachable:', error);
+            }
+        });
+    </script>
+</body>
+</html>
+

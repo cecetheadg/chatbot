@@ -1,0 +1,79 @@
+name: Deploy (prod, self-hosted runner)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  packages: read
+
+env:
+  IMAGE_OWNER: ${{ github.repository_owner }}
+  IMAGE_NAME: ${{ github.event.repository.name }}
+  DOMAIN: ${{ secrets.DOMAIN_PRODUCTION }}
+#   POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+#   POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+#   POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+  DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+  TRAEFIK_ACME_EMAIL: ${{ secrets.TRAEFIK_ACME_EMAIL }}
+  DEFAULT_LLM_PROVIDER: ${{ secrets.DEFAULT_LLM_PROVIDER }}
+
+  ENVIRONMENT: production
+  DATA_DIR: './data'
+  LAW_FILE: 'loi_L0027_enrichie.json'
+  QA_FILE: 'qa_entrainement_L0027.json'
+
+jobs:
+  deploy:
+    runs-on: 
+      - self-hosted
+      - production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy with Docker Compose
+        shell: bash
+        run: |
+          set -euo pipefail
+          export IMAGE_OWNER="${IMAGE_OWNER}"
+          export IMAGE_NAME="${IMAGE_NAME}"
+          COMPOSE_FILE="docker-compose.prod.yml"
+
+          echo "Starting Traefik..."
+          docker compose -f docker-compose.traefik.yml up -d
+
+          echo "Waiting for Traefik to be ready..."
+          sleep 5
+
+          echo "Checking Traefik status..."
+          docker compose -f docker-compose.traefik.yml ps
+
+          echo "Stopping and removing containers..."
+          docker compose -f "$COMPOSE_FILE" down --remove-orphans
+
+          echo "Removing project images to force fresh pull..."
+          docker rmi "ghcr.io/${IMAGE_OWNER}/${IMAGE_NAME}-chatbot:latest" 2>/dev/null || true
+
+          echo "Pulling latest images..."
+          docker compose -f "$COMPOSE_FILE" pull
+
+          echo "Starting containers..."
+          docker compose -f "$COMPOSE_FILE" up -d --remove-orphans
+
+          sleep 5
+          echo "Running chatbot setup (migrate, static, import)..."
+          docker compose -f "$COMPOSE_FILE" exec -T chatbot /app/deploy-production.sh
+
+          echo "Pruning unused images..."
+          docker image prune -f
